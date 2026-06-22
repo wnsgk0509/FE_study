@@ -4,6 +4,8 @@ import { Routes, Route, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Catalog from './pages/Catalog';
 import Community from './pages/Community';
+import CatalogDetail from './pages/CatalogDetail';
+
 
 
 function FeStudy() {
@@ -19,8 +21,10 @@ function FeStudy() {
             {/* 실제 화면이 바뀌는 영역 */}
             <Routes>
                 <Route path={"/"} element={<HomePage />}></Route>
-                <Route path={"/catalog"} element={<Catalog />}></Route>
+                <Route path="/catalog" element={<Catalog />}></Route>
                 <Route path={"/community"} element={<Community />}></Route>
+                <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
+
 
             </Routes>
             
