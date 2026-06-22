@@ -4,8 +4,8 @@ import './Catalog.css';
 
 
 
-function Catalog(){
-    return(
+function Catalog() {
+    return (
         <div>
              {/* 메인 배너 */}
             <div className="mainBanner">

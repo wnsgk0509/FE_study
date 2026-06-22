@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import Catalog from './pages/Catalog';
 import Community from './pages/Community';
 import CatalogDetail from './pages/CatalogDetail';
+import PostDetail from './pages/PostDetail';
 
 
 
@@ -24,6 +25,7 @@ function FeStudy() {
                 <Route path="/catalog" element={<Catalog />}></Route>
                 <Route path={"/community"} element={<Community />}></Route>
                 <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
+                <Route path='/community/communityDetail' element={<PostDetail />}></Route>
 
 
             </Routes>

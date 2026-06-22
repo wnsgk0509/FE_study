@@ -1,0 +1,151 @@
+.community-page {
+    min-height: 100vh;
+    padding: 48px 26px;
+    background: #f7f8fb;
+}
+
+.community-header {
+        display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.community-header h1 {
+    margin: 0 0 8px;
+    font-size: 38px;
+    color: #10213d;
+}
+
+.community-header h4 {
+    margin: 0;
+    color: #63718a;
+    font-weight: 400;
+}
+
+.write-button {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 18px;
+    background: #5b3ee8;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 57px;
+    padding: 0 20px;
+    margin-bottom: 25px;
+    background: white;
+    border: 1px solid #e2e5eb;
+    border-radius: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-icon {
+    font-size: 22px;
+    color: #69758a;
+}
+
+.category-tabs {
+    display: inline-flex;
+    padding: 4px;
+    margin-bottom: 30px;
+    background: #eceef4;
+        border-radius: 18px;
+}
+
+.tab {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 14px;
+    background: transparent;
+    color: #66738a;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tab.active {
+    background: white;
+    color: #5b3ee8;
+    box-shadow: 0 2px 4px rgba(20, 32, 60, 0.15);
+}
+
+.post-list {
+    overflow: hidden;
+    background: white;
+    border: 1px solid #e2e5eb;
+    border-radius: 20px;
+}
+
+.post-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid #e7e9ee;
+}
+
+.post-item:last-child {
+    border-bottom: none;
+}
+
+.post-main {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.post-main strong {
+    font-size: 17px;
+    color: #10213d;
+}
+
+.post-info {
+    display: flex;
+    gap: 13px;
+    color: #63718a;
+    font-size: 14px;
+}
+
+.category-badge {
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.qa-badge {
+    background: #eee9ff;
+    color: #5b3ee8;
+}
+
+.tip-badge {
+    background: #d9f8e9;
+    color: #00a866;
+}
+
+.free-badge {
+    background: #fff0cc;
+    color: #e77b00;
+}
+
+.reply-count {
+    color: #5b3ee8;
+    font-weight: bold;
+}
+
+.post-total {
+    color: #63718a;
+    font-size: 14px;
+}
