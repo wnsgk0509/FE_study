@@ -1,8 +1,8 @@
 import React from "react";
 import '../catalogPage/StudyBox.css';
 import { Link } from "react-router-dom";
-
-function StudyBox ({text1 , text2 , difficult , explain , time}){
+const StudyBox = ({data}) =>{
+const { text1 , text2 , difficult , explain , time} = data;
     return(
         <>
         <Link to="/catalog/catalogDetail"><button className="studyBox">
