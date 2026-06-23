@@ -1,5 +1,5 @@
 import {Link } from 'react-router-dom';
-import StudyBox from './catalogPage/StudyBox';
+import StudyBox from '../component/StudyBox';
 import './Catalog.css';
 import { useState } from 'react';
 
