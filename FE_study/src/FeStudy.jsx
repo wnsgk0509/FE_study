@@ -7,8 +7,6 @@ import Community from './pages/Community';
 import CatalogDetail from './pages/CatalogDetail';
 import PostDetail from './pages/PostDetail';
 
-
-
 function FeStudy() {
     return (
         <div>
@@ -23,9 +21,11 @@ function FeStudy() {
             <Routes>
                 <Route path={"/"} element={<HomePage />}></Route>
                 <Route path="/catalog" element={<Catalog />}></Route>
-                <Route path={"/community"} element={<Community />}></Route>
+                <Route path="/community" element={<Community />}></Route>
                 <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
                 <Route path='/community/communityDetail' element={<PostDetail />}></Route>
+                <Route path="/community/DetailCommunity" element={<PostDetail />}
+/>
 
 
             </Routes>
