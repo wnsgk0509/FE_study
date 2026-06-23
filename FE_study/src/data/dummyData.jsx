@@ -1,4 +1,3 @@
-    // dummyData.jsx
 
     export const dummyData = [
     {
@@ -8,7 +7,8 @@
         text2: "HTML 구조의 모든 것",
         difficult: "입문",
         explain: "웹 페이지의 뼈대를 만드는 HTML 태그와 시맨틱 마크업을 완벽히 익힙니다.",
-        time: "3시간"
+        time: "3시간",
+        videoUrl: "https://youtube.com/embed/ajhEFz1zNMQ?si=zMWEdwCzK3yujt46"
         }
     },
     {

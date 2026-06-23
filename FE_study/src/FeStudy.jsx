@@ -54,13 +54,15 @@ function FeStudy() {
 
 
             {/* 실제 화면이 바뀌는 영역 */}
-                <Routes>
-                    <Route path={"/"} element={<HomePage style={{backgroundColor:'#8ec5fc)'}} />}></Route>
-                    <Route path="/catalog" element={<Catalog />}></Route>
-                    <Route path={"/community"} element={<Community />}></Route>
-                    <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
-                    <Route path='/community/communityDetail' element={<PostDetail />}></Route>
-                </Routes>
+            <Routes>
+                <Route path={"/"} element={<HomePage />}></Route>
+                <Route path="/catalog" element={<Catalog />}></Route>
+                <Route path={"/community"} element={<Community />}></Route>
+                <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
+                <Route path='/community/communityDetail' element={<PostDetail />}></Route>
+                <Route path="/catalog/:id" element={<CatalogDetail />} />
+
+            </Routes>
             {/* 실제 화면이 바뀌는 영역 */}
 
 
