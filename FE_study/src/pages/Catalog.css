@@ -43,3 +43,8 @@
     transition: all 0.2s ease;
     margin-left:5px;
 }
+.Box{
+    width:100%;
+    justify-content: center;
+    
+}
