@@ -1,58 +1,17 @@
+import './HomePage.css';
+
 function HomePage() {
     return (
         // backgroundColor 대신 background를 사용하고, linear-gradient를 문자열로 넣어줍니다.
-        <div style={{ background: 'linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%)' }}>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+        <div className='Home-bg-color'
+
+            >
+            
+            <div className='Home-title'>
+                <h1 >프론트엔드 개발의</h1>
+                <h1 style={{color:'yellow'}}>뼈대부터 완성까지</h1>
+            </div>
+
         </div>
     )
 }
