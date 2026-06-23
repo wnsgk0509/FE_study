@@ -1,14 +1,58 @@
 function HomePage() {
     return (
-        <div>
-            <h1>메인화면입니다</h1>
-            <h1>메인화면입니다</h1>
-            <h1>메인화면입니다</h1>
-            <h1>메인화면입니다</h1>
-            <h1>메인화면입니다</h1>
-            <h1>메인화면입니다</h1>
-            <h1>메인화면입니다</h1>
-            
+        // backgroundColor 대신 background를 사용하고, linear-gradient를 문자열로 넣어줍니다.
+        <div style={{ background: 'linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%)' }}>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
     )
 }
