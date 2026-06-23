@@ -32,6 +32,7 @@ function Catalog() {
                     .map(item => (
                         <StudyBox
                             key={item.id}
+                            id={item.id}
                             data={item.value}
                         />
                     ))

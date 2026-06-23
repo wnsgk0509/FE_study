@@ -26,7 +26,7 @@ function FeStudy() {
                 <Route path={"/community"} element={<Community />}></Route>
                 <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
                 <Route path='/community/communityDetail' element={<PostDetail />}></Route>
-
+                <Route path="/catalog/:id" element={<CatalogDetail />} />
 
             </Routes>
             
