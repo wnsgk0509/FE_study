@@ -1,7 +1,7 @@
 import React from "react";
 import '../catalogPage/StudyBox.css';
 import { Link } from "react-router-dom";
-const StudyBox = ({data}) =>{
+const StudyBox = ({data }) =>{
 const { text1 , text2 , difficult , explain , time} = data;
     return(
         <>
@@ -13,6 +13,7 @@ const { text1 , text2 , difficult , explain , time} = data;
             <p className="study5">{time}</p>    
 
         </button></Link>
+        
         </>
     )
 }
