@@ -31,7 +31,7 @@ function FeStudy() {
                 border: 'solid 1px #b9b9b9c4',
                 height: '60px',
                 width: '100%',
-                position:'fixed'
+                position: 'fixed'
             }
             }>
 
@@ -57,15 +57,17 @@ function FeStudy() {
 
 
             {/* 실제 화면이 바뀌는 영역 */}
-            <Routes>
-                <Route path={"/"} element={<HomePage />}></Route>
-                <Route path="/catalog" element={<Catalog />}></Route>
-                <Route path={"/community"} element={<Community />}></Route>
-                <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
-                <Route path='/community/communityDetail' element={<PostDetail />}></Route>
-                <Route path="/catalog/:id" element={<CatalogDetail />} />
+            <div style={{ paddingTop: '60px' }}>
+                <Routes>
+                    <Route path={"/"} element={<HomePage />}></Route>
+                    <Route path="/catalog" element={<Catalog />}></Route>
+                    <Route path={"/community"} element={<Community />}></Route>
+                    <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
+                    <Route path='/community/communityDetail' element={<PostDetail />}></Route>
+                    <Route path="/catalog/:id" element={<CatalogDetail />} />
 
-            </Routes>
+                </Routes>
+            </div>
             {/* 실제 화면이 바뀌는 영역 */}
 
 
