@@ -39,7 +39,7 @@ function FeStudy() {
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-                    <Link to="/catalog"><button type="button" className="btn btn-light">카테고리</button></Link>
+                    <Link to="/catalog"><button type="button" className="btn btn-light">카탈로그</button></Link>
                     <Link to="/community"><button type="button" className="btn btn-light">커뮤니티</button></Link>
 
                 </div>
