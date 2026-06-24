@@ -23,11 +23,12 @@ function CatalogDetail() {
     else if (text1 === "React") currentImg = reactLogo;
 
     return (
-        <>
-        <div style={{ marginLeft: 10 }} className="banner"> 
+        <div >
+        <div  className="banner"> 
             <div className="img">
                 <img className="image" src={currentImg} alt={text1} />
                 </div>
+                
 
                 <div className="explain">
                     <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
@@ -56,24 +57,30 @@ function CatalogDetail() {
                 <div >
                 <iframe className="frame" src={videoUrl} allowFullScreen></iframe>
             </div>
+            <Link to="/catalog"><button type="button" class="backCatalog btn btn-outline-primary">
+                    카탈로그 돌아가기
+                    </button></Link>
 
             <div className="link"> 
                 <div className="study">
                     
 
-                    <div className="HTML" style={{ marginTop: '20px' , marginLeft:'40px'}}>
-                        <h3>다른 과목 바로가기</h3>
-                        <div>
+                    <div style={{ marginTop: '20px', marginLeft: '40px' }}>
+                        <h3 style={{ color: '#212121', marginBottom: '12px', fontSize: '18px' }}>
+                            다른 과목 바로가기
+                        </h3>
+                        
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                             {links.map((item, index) => (
                                 <li key={index} style={{ marginBottom: '8px' }}>
-                                    <Link to={item.path} style={{ textDecoration: 'none', fontWeight: '500' }}>
+                                    <Link to={item.path} style={{ textDecoration: 'none', fontWeight: '500', color: '#0d47a1' }}>
                                         <span style={{ cursor: 'pointer' }}>
                                             {item.title}
                                         </span>
                                     </Link>
                                 </li>
                             ))}
-                        </div>
+                        </ul>
                     </div>
 
                 </div>
@@ -81,7 +88,7 @@ function CatalogDetail() {
                 
             </div>
         </div>
-        </>
+        </div>
     );
 }
 

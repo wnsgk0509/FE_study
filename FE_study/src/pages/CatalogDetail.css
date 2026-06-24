@@ -2,12 +2,14 @@
     width:100%;
     height: auto;
     margin:0;
-    
+    background: #E6E5E2;
 }
+
 .img{
     height:100px;
     display:flex;
     justify-content: space-between;
+    margin-left:15px;
 
 }
 .image{
@@ -28,4 +30,13 @@
 .explain{
     margin-left:20%;
     margin-right:10%;
+    background:white;
+    border-radius:10px;
+    padding-top: 20px;
+    padding-left: 20px;
+    width:60%;
+}
+.backCatalog{
+    margin-left:40%;
+    
 }
