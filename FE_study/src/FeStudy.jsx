@@ -29,7 +29,9 @@ function FeStudy() {
                 gap: '150px',
                 backgroundColor: 'white',
                 border: 'solid 1px #b9b9b9c4',
-                height: '60px'
+                height: '60px',
+                width: '100%',
+                position:'fixed'
             }
             }>
 
