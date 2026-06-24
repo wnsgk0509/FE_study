@@ -5,6 +5,7 @@
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
     border-radius: 12px;
     margin: 20px 0;
+    margin-left: 10px;
 }
 .main11{
     font-size: 32px;
@@ -40,5 +41,6 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
-    margin-left:1px;
+    margin-left:5px;
 }
+

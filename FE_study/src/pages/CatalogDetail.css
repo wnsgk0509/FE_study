@@ -1,0 +1,31 @@
+.banner{
+    width:100%;
+    height: auto;
+    margin:0;
+    
+}
+.img{
+    height:100px;
+    display:flex;
+    justify-content: space-between;
+
+}
+.image{
+    margin-top:20px;
+    width:10%;
+    height:100px;
+}
+.frame{
+    width:70%;
+    height:auto;
+    margin-left: 15%;
+    height:500px;
+    margin-top:30px;
+}
+.study{
+    display:flex;
+}
+.explain{
+    margin-left:20%;
+    margin-right:10%;
+}

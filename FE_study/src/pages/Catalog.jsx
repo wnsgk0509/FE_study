@@ -26,17 +26,20 @@ function Catalog() {
                 <button onClick={() => setActiveText('JavaScript') } className="btn4">JS</button>
                 <button onClick={() => setActiveText('React') } className="btn5">React</button>
             </div>
-        <div > 
-                {dummyData
-                    .filter(item => activeText === null || item.value.text1 === activeText)
-                    .map(item => (
-                        <StudyBox
-                            key={item.id}
-                            data={item.value}
-                        />
-                    ))
-                }
-            </div>
+            
+                <div className="Box"> 
+                    {dummyData
+                        .filter(item => activeText === null || item.value.text1 === activeText)
+                        .map(item => (
+                            <StudyBox
+                                key={item.id}
+                                id={item.id}
+                                data={item.value}
+                            />
+                        ))
+                    }
+                </div>
+            
 
         </div>
         

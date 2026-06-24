@@ -1,0 +1,46 @@
+.Home-bg-color {
+    background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.Home-Text div {
+    text-align: center;
+}
+
+.Title-Text {
+    color: white;
+    margin-top: 150px;
+    letter-spacing: -5px;
+
+}
+
+.Title-Text h1 {
+    font-size: 65px;
+    font-weight: bold;
+
+}
+
+.Sub-Text {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #c8bbfc;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.Func-Button{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    
+}
+.Func-Button button{
+    width: 160px;
+    height: 45px;
+    font-weight: bold;
+    /* color: ; */
+}
+.Site-Info{
+    margin-bottom: 100px;
+}
