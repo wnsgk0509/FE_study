@@ -21,7 +21,7 @@ function HomePage() {
                 </div>
                 <div className='Func-Button'>
                     <Link to="/catalog"><button type="button" class="btn btn-light">학습 시작하기 </button></Link>
-                    <Link to="/catalog"><button type="button" class="btn btn-light">커뮤니티 둘러보기</button></Link>
+                    <Link to="/community"><button type="button" class="btn btn-light">커뮤니티 둘러보기</button></Link>
                 </div>
                 <hr style={{ color: 'white' }} />
 
