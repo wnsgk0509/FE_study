@@ -57,7 +57,7 @@ function Community() {
                     <section className="post-list">
                         <article
                             className="post-item"
-                            onClick={() => navigate("/community/1")}
+                            onClick={() => navigate("/community/DetailCommunity?id=id1")}
                         >
                             <div className="post-main" >
                                 <span className="category-badge qa-badge">Q&amp;A</span>
@@ -73,7 +73,7 @@ function Community() {
 
                         <article
                             className="post-item"
-                            onClick={() => navigate("/community/2")}
+                            onClick={() => navigate("/community/DetailCommunity?id=id2")}
                         >
                             <div className="post-main">
                                 <span className="category-badge qa-badge">Q&amp;A</span>
@@ -97,7 +97,7 @@ function Community() {
                     <section className="post-list">
                         <article
                             className="post-item"
-                            onClick={() => navigate("/community/3")}
+                            onClick={() => navigate("/community/DetailCommunity?id=id3")}
                         >
                             <div className="post-main">
                                 <span className="category-badge tip-badge">팁 공유</span>
@@ -113,7 +113,7 @@ function Community() {
 
                         <article
                             className="post-item"
-                            onClick={() => navigate("/community/4")}
+                            onClick={() => navigate("/community/DetailCommunity?id=id4")}
                         >
                             <div className="post-main">
                                 <span className="category-badge tip-badge">팁 공유</span>
@@ -129,7 +129,7 @@ function Community() {
 
                         <article
                             className="post-item"
-                            onClick={() => navigate("/community/5")}
+                            onClick={() => navigate("/community/DetailCommunity?id=id5")}
                         >
                             <div className="post-main">
                                 <span className="category-badge tip-badge">팁 공유</span>
@@ -153,7 +153,7 @@ function Community() {
                     <section className="post-list">
                         <article
                             className="post-item"
-                            onClick={() => navigate("/community/6")}
+                            onClick={() => navigate("/community/DetailCommunity?id=id6")}
                         >
                             <div className="post-main">
                                 <span className="category-badge free-badge">자유게시판</span>
@@ -169,7 +169,7 @@ function Community() {
 
                         <article
                             className="post-item"
-                            onClick={() => navigate("/community/7")}
+                            onClick={() => navigate("/community/DetailCommunity?id=id7")}
                         >
                             <div className="post-main">
                                 <span className="category-badge free-badge">자유게시판</span>
@@ -185,7 +185,7 @@ function Community() {
 
                         <article
                             className="post-item"
-                            onClick={() => navigate("/community/8")}
+                            onClick={() => navigate("/community/DetailCommunity?id=id8")}
                         >
                             <div className="post-main">
                                 <span className="category-badge free-badge">자유게시판</span>

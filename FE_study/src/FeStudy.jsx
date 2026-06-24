@@ -9,14 +9,6 @@ import Community from './pages/Community';
 import CatalogDetail from './pages/CatalogDetail';
 import PostDetail from './pages/PostDetail';
 
-{/* 
-    FeStudy 코드구조
-    GNV 
-    
-    Routes
-
-    Footer 
-*/}
 function FeStudy() {
     return (
 
@@ -29,7 +21,9 @@ function FeStudy() {
                 gap: '150px',
                 backgroundColor: 'white',
                 border: 'solid 1px #b9b9b9c4',
-                height: '60px'
+                height: '60px',
+                width: '100%',
+                position: 'fixed'
             }
             }>
 
@@ -55,15 +49,17 @@ function FeStudy() {
 
 
             {/* 실제 화면이 바뀌는 영역 */}
-            <Routes>
-                <Route path={"/"} element={<HomePage />}></Route>
-                <Route path="/catalog" element={<Catalog />}></Route>
-                <Route path={"/community"} element={<Community />}></Route>
-                <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
-                <Route path='/community/communityDetail' element={<PostDetail />}></Route>
-                <Route path="/catalog/:id" element={<CatalogDetail />} />
+            <div style={{ paddingTop: '60px' }}>
+                <Routes>
+                    <Route path={"/"} element={<HomePage />}></Route>
+                    <Route path="/catalog" element={<Catalog />}></Route>
+                    <Route path={"/community"} element={<Community />}></Route>
+                    <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
+                    <Route path='/community/communityDetail' element={<PostDetail />}></Route>
+                    <Route path="/catalog/:id" element={<CatalogDetail />} />
 
-            </Routes>
+                </Routes>
+            </div>
             {/* 실제 화면이 바뀌는 영역 */}
 
 
