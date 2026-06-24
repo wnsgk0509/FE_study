@@ -149,3 +149,8 @@
     color: #63718a;
     font-size: 14px;
 }
+
+.detail-content {
+    color: black !important;
+    white-space: pre-line;
+}
