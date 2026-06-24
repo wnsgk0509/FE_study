@@ -25,7 +25,8 @@ function FeStudy() {
             <nav style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'space-between',
+                justifyContent: 'space-around',
+                gap: '150px',
                 backgroundColor: 'white',
                 border: 'solid 1px #b9b9b9c4',
                 height: '60px'
@@ -39,7 +40,7 @@ function FeStudy() {
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-                    <Link to="/catalog"><button type="button" className="btn btn-light">카테고리</button></Link>
+                    <Link to="/catalog"><button type="button" className="btn btn-light">카탈로그</button></Link>
                     <Link to="/community"><button type="button" className="btn btn-light">커뮤니티</button></Link>
 
                 </div>
