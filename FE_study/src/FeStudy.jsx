@@ -25,7 +25,8 @@ function FeStudy() {
             <nav style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'space-between',
+                justifyContent: 'space-around',
+                gap: '150px',
                 backgroundColor: 'white',
                 border: 'solid 1px #b9b9b9c4',
                 height: '60px'

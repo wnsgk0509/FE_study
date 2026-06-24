@@ -3,12 +3,44 @@
     display: flex;
     justify-content: center;
 }
-.Home-title{
-    color:white;
-    margin-top: 150px;
-    
+
+.Home-Text div {
+    text-align: center;
 }
-.Home-title h1{
+
+.Title-Text {
+    color: white;
+    margin-top: 150px;
+    letter-spacing: -5px;
+
+}
+
+.Title-Text h1 {
     font-size: 65px;
     font-weight: bold;
+
+}
+
+.Sub-Text {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #c8bbfc;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.Func-Button{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    
+}
+.Func-Button button{
+    width: 160px;
+    height: 45px;
+    font-weight: bold;
+    /* color: ; */
+}
+.Site-Info{
+    margin-bottom: 100px;
 }
