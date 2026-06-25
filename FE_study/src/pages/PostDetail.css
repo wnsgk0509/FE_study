@@ -1,0 +1,48 @@
+.post-detail {
+    width: 1200px;
+    min-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    box-sizing: border-box;
+
+    background: white;
+    border: 1px solid #e2e5eb;
+    border-radius: 20px;
+}
+
+.post-detail h1 {
+    margin-bottom: 20px;
+    color: #10213d;
+    font-size: 36px;
+}
+
+.post-info {
+    display: flex;
+    gap: 10px;
+    color: #63718a;
+    margin-bottom: 20px;
+}
+
+.post-content {
+    min-height: 400px;
+    padding: 20px 0;
+    line-height: 1.8;
+    color: #222;
+    white-space: pre-line;
+}
+
+.back-button {
+    margin-top: 30px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    background: #5b3ee8;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.back-button:hover {
+    background: #4a31c4;
+}

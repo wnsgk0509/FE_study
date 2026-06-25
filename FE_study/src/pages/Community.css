@@ -154,3 +154,54 @@
     color: black !important;
     white-space: pre-line;
 }
+
+.post-item {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.post-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    background-color: #f8fafc;
+}
+
+.post-main strong {
+    transition: color 0.2s ease;
+}
+
+.post-item:hover .post-main strong {
+    color: #2563eb;
+}
+
+.community-page {
+    width: 1200px;
+    min-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 26px;
+    box-sizing: border-box;
+}
+
+.community-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.post-item {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.post-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.category-tabs {
+    display: flex;
+    gap: 10px;
+}

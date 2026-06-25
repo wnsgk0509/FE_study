@@ -1,5 +1,6 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { categories, communityPosts } from "../data/dummyCommunityData";
+import "./PostDetail.css";
 
 function PostDetail() {
     const navigate = useNavigate();
