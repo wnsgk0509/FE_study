@@ -2,7 +2,6 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 
-// 사용할 페이지 컴포넌트들을 불러옵니다.
 import HomePage from './pages/HomePage';
 import Catalog from './pages/Catalog';
 import Community from './pages/Community';
@@ -23,7 +22,9 @@ function FeStudy() {
                 border: 'solid 1px #b9b9b9c4',
                 height: '60px',
                 width: '100%',
-                position: 'fixed'
+                position: 'sticky',
+                top: 0,
+                zIndex:1    /*네비게이션바가 제일 앞에오게 */
             }
             }>
 
@@ -34,14 +35,14 @@ function FeStudy() {
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-                    <Link to="/catalog"><button type="button" className="btn btn-light">카탈로그</button></Link>
-                    <Link to="/community"><button type="button" className="btn btn-light">커뮤니티</button></Link>
+                    <Link to="/catalog"><button type="button" className="btn btn-light" style={{width:'100px'}}>카탈로그</button></Link>
+                    <Link to="/community"><button type="button" className="btn btn-light" style={{width:'100px'}}>커뮤니티</button></Link>
 
                 </div>
 
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <button type="button" className="btn btn-dark">로그인</button>
+                    <button type="button" className="btn btn-dark" style={{width:'100px'}}>로그인</button>
                 </div>
 
             </nav >
@@ -49,7 +50,7 @@ function FeStudy() {
 
 
             {/* 실제 화면이 바뀌는 영역 */}
-            <div style={{ paddingTop: '60px' }}>
+            <div>
                 <Routes>
                     <Route path={"/"} element={<HomePage />}></Route>
                     <Route path="/catalog" element={<Catalog />}></Route>

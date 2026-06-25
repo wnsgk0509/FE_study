@@ -2,9 +2,13 @@ import './HomePage.css';
 
 import { Link } from 'react-router-dom';
 
+//메인페이지 광고용 스펙데이터 및 컴포넌트 추가  
+import SiteSpecText from '../component/SiteSpecText';
+import siteSpecData from '../data/SiteSpecData';
+
 function HomePage() {
     return (
-        // backgroundColor 대신 background를 사용하고, linear-gradient를 문자열로 넣어줍니다.
+
         <div className='Home-bg-color' >
 
             <div className='Home-Text'>
@@ -20,14 +24,22 @@ function HomePage() {
                     <span>체계적인 순서로 흔들리지 않는 실력을 쌓으세요</span>
                 </div>
                 <div className='Func-Button'>
-                    <Link to="/catalog"><button type="button" class="btn btn-light">학습 시작하기 </button></Link>
-                    <Link to="/community"><button type="button" class="btn btn-light">커뮤니티 둘러보기</button></Link>
+                    <Link to="/catalog"><button type="button" className="btn btn-light">학습 시작하기 </button></Link>
+                    <Link to="/community"><button type="button" className="btn btn-light">커뮤니티 둘러보기</button></Link>
                 </div>
                 <hr style={{ color: 'white' }} />
 
-                <div className='Site-Info'>
-                    인강사이트 스팩 넣기 
-                    
+                <div className='Site-Spec'>
+                    {
+                        siteSpecData.map((item, index)=>{
+                            return(
+                                <SiteSpecText
+                                    key={index}
+                                    data={item}
+                                />
+                            );
+                        })
+                    }
 
                 </div>
             </div>
