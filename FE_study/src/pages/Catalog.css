@@ -1,5 +1,5 @@
 .mainBanner{
-    width:35%;
+    width:400px;
     height:auto;
     background-color: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.06);
@@ -33,7 +33,7 @@
 
 }
 .main2Banner{
-    width:35%;
+    width:400px;
     height:auto;
     background-color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
