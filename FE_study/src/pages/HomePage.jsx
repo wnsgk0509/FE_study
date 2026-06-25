@@ -20,8 +20,8 @@ function HomePage() {
                     <span>체계적인 순서로 흔들리지 않는 실력을 쌓으세요</span>
                 </div>
                 <div className='Func-Button'>
-                    <Link to="/catalog"><button type="button" class="btn btn-light">학습 시작하기 </button></Link>
-                    <Link to="/community"><button type="button" class="btn btn-light">커뮤니티 둘러보기</button></Link>
+                    <Link to="/catalog"><button type="button" className="btn btn-light">학습 시작하기 </button></Link>
+                    <Link to="/community"><button type="button" className="btn btn-light">커뮤니티 둘러보기</button></Link>
                 </div>
                 <hr style={{ color: 'white' }} />
 

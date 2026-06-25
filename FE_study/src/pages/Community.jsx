@@ -33,6 +33,7 @@ function Community() {
                 <button
                     className={selectedTab === "Q&A" ? "tab active" : "tab"}
                     onClick={() => setSelectedTab("Q&A")}
+                    
                 >
                     Q&amp;A
                 </button>
