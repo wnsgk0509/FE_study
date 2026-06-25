@@ -1,7 +1,7 @@
 .mainBanner{
     width:400px;
     height:auto;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.3);
     border: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow: 
     0 0 0 1px rgba(64, 93, 230, 0.05), 
@@ -11,7 +11,7 @@
     border-radius: 12px;
 }
 .bgcolor{
-    background: #E6E5E2;
+    background: linear-gradient(135deg, #E6F4F1 0%, #FCFCD4 100%);
     padding-top: 20px;
     padding-left:120px;
 }
@@ -35,7 +35,7 @@
 .main2Banner{
     width:400px;
     height:auto;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border-radius: 12px;
     padding: 6px; 
