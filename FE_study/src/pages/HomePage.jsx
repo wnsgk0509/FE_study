@@ -40,9 +40,6 @@ function HomePage() {
                             );
                         })
                     }
-                   
-
-
 
                 </div>
             </div>

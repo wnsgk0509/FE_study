@@ -35,14 +35,14 @@ function FeStudy() {
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-                    <Link to="/catalog"><button type="button" className="btn btn-light">카탈로그</button></Link>
-                    <Link to="/community"><button type="button" className="btn btn-light">커뮤니티</button></Link>
+                    <Link to="/catalog"><button type="button" className="btn btn-light" style={{width:'100px'}}>카탈로그</button></Link>
+                    <Link to="/community"><button type="button" className="btn btn-light" style={{width:'100px'}}>커뮤니티</button></Link>
 
                 </div>
 
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <button type="button" className="btn btn-dark">로그인</button>
+                    <button type="button" className="btn btn-dark" style={{width:'100px'}}>로그인</button>
                 </div>
 
             </nav >
