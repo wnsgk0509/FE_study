@@ -1,22 +1,85 @@
+/* 전체 백그라운드 */
 .banner{
     width:100%;
     height: auto;
     margin:0;
-    background: #E6E5E2;
+    background: #ffffff;
 }
-
+/* 이미지 로고 */
 .img{
     height:100px;
     display:flex;
     justify-content: space-between;
     margin-left:15px;
-
 }
 .image{
     margin-top:20px;
     width:10%;
     height:100px;
 }
+/* text-box , text1 , difficult 등을 감싸고 있는 전체 박스*/
+.explain{
+    margin-left:20%;
+    margin-right:10%;
+    background:#F1F3F5;
+    border-radius:10px;
+    padding-top: 20px;
+    padding-left: 20px;
+    width:60%;
+}
+/* 학습 과목 및 난이도 */
+.text-box{
+    display:flex;
+    gap : 10px;
+    margin-bottom:10px;
+}
+.badge-text1{
+    background:inherit;
+    padding:4px , 8px;
+    border-radius: 4px ;
+    font-weight: bold;
+    color:#0d47a1;
+}
+.badge-difficult{
+    background: #f5f5f5;
+    padding : 4px , 8px;
+    border-radius:4px;
+    color:#616161;
+}
+/* 학습 과목 내용 */
+.badge-text2{
+    fontsize:32px;
+    margin-bottom:20px;
+    color:#212121;
+}
+/* 중단 공백 */
+.empty{
+    border:0;
+    height:1px;
+    background:#ddd;
+    margin-bottom:20px;
+}
+/* 학습 내용 설명 */
+.badge-explain{
+    margin-bottom:30px;
+    line-height: 1.6;
+    color:#424242;
+    font-size:18px;
+}
+/* 소요시간  */
+.timeBox{
+    background:inherit;
+    padding:15px;
+    border-radius: 8px;
+    border:1px solid #eee;
+    margin-bottom:20px;
+    
+}
+.badge-time{
+    margin:0px;
+    color:#666;
+}
+/* 강의 영상 */
 .frame{
     width:70%;
     height:auto;
@@ -24,19 +87,84 @@
     height:500px;
     margin-top:30px;
 }
+/* 다른과목 바로가기와 아코디언 전체 박스 */
+.link{
+    display:flex;
+    justify-content: space-between;
+    
+}
+/* 다른 과목 바로가기 전체 박스를 감싸고 있는 박스 */
 .study{
     display:flex;
 }
-.explain{
-    margin-left:20%;
-    margin-right:10%;
-    background:white;
-    border-radius:10px;
-    padding-top: 20px;
-    padding-left: 20px;
-    width:60%;
+/* 다른 과목 바로가기 전체 박스 */
+.moveLink{
+    margin-top:20px;
+    margin-left:40px;
 }
-.backCatalog{
-    margin-left:40%;
+/* 아코디언 코드 전체 박스*/
+.accordion{
+    width:700px;
+    height:auto;
+    margin-top:40px;
+    margin-right:40px;
+}
+.accordion-box{
+    border:1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom:12px;
+    overflow:hidden;
+    background:#fff;
     
+}
+/* 커리큘럼 텍스트 배너 */
+.cqTextBanner{
+    font-size:16px;
+    color:#2b6cb0;
+}
+/* 커리큘럼 텍스트 전체 박스  */
+.cqTextBox{
+    display:flex;
+    justify-content:space-between;
+    padding:16px 20px;
+    cursor:pointer;
+    font-weight: bold;
+}
+/* 배너 아래 강의 제목 css */
+.subTitle-All{
+    padding:15px 20px;
+    border-top:1px solid #e0e0e0;
+    background: #fff;
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+}
+/* 텍스트를 감싸고있는 박스 css */
+.subTitle-textBox{
+    display:flex;
+    align-items: center;
+    padding:10px 14px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #f1f3f5;
+    cursor: pointer;
+}
+/* 서브타이틀 텍스트 */
+.subTitle-Text{
+    color:#4a5568;
+    font-size: 14px;
+    font-weight: 500px;
+}    
+/* 커리큘럼 안내 */
+.cq-Info{
+    margin-bottom:15px;
+    color:#333;
+    font-size:18px;
+}
+/* 커리큘럼 안내 부분 전체 박스 */
+.cq-main{
+    width:60%;
+    margin-left:20%;
+    margin-top:40px;
+    margin-bottom:40px;
 }

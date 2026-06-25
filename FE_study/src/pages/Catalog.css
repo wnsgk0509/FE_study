@@ -46,7 +46,7 @@
     
 }
 
-.btn1, .btn2, .btn3, .btn4, .btn5{
+.btn_ALL, .btn_HTML, .btn_CSS, .btn_JS, .btn_REACT{
     flex:1;
     height:40px;
     background-color: transparent;
