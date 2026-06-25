@@ -1,14 +1,20 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
+import './FeStudy.css'
 
 import HomePage from './pages/HomePage';
 import Catalog from './pages/Catalog';
 import Community from './pages/Community';
 import CatalogDetail from './pages/CatalogDetail';
 import PostDetail from './pages/PostDetail';
+import { useState } from 'react';
 
 function FeStudy() {
+
+    const [isLoginModal, setIsLoginModal] = useState(false);
+
+
     return (
 
         < div >
@@ -24,7 +30,7 @@ function FeStudy() {
                 width: '100%',
                 position: 'sticky',
                 top: 0,
-                zIndex:1    /*네비게이션바가 제일 앞에오게 */
+                zIndex: 1    /*네비게이션바가 제일 앞에오게 */
             }
             }>
 
@@ -35,19 +41,37 @@ function FeStudy() {
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-                    <Link to="/catalog"><button type="button" className="btn btn-light" style={{width:'100px'}}>카탈로그</button></Link>
-                    <Link to="/community"><button type="button" className="btn btn-light" style={{width:'100px'}}>커뮤니티</button></Link>
+                    <Link to="/catalog"><button type="button" className="btn btn-light" style={{ width: '100px' }}>카탈로그</button></Link>
+                    <Link to="/community"><button type="button" className="btn btn-light" style={{ width: '100px' }}>커뮤니티</button></Link>
 
                 </div>
 
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <button type="button" className="btn btn-dark" style={{width:'100px'}}>로그인</button>
+                    <button
+                        type="button"
+                        className="btn btn-dark"
+                        style={{ width: '100px' }}
+                        onClick={() => setIsLoginModal(true)}
+                    >로그인</button>
                 </div>
 
             </nav >
             {/* GNV */}
 
+            {isLoginModal && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <h2>로그인</h2>
+                        <form>
+                            <input type="text" placeholder="아이디" />
+                            <input type="password" placeholder="비밀번호" />
+                            <button type="submit">로그인 하기</button>
+                        </form>
+                        <button onClick={()=> setIsLoginModal(false)} className="close-btn">닫기</button>
+                    </div>
+                </div>
+            )}
 
             {/* 실제 화면이 바뀌는 영역 */}
             <div>
