@@ -2,7 +2,6 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 
-// 사용할 페이지 컴포넌트들을 불러옵니다.
 import HomePage from './pages/HomePage';
 import Catalog from './pages/Catalog';
 import Community from './pages/Community';

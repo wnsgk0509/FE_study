@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function HomePage() {
     return (
-        // backgroundColor 대신 background를 사용하고, linear-gradient를 문자열로 넣어줍니다.
+        
         <div className='Home-bg-color' >
 
             <div className='Home-Text'>
