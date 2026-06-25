@@ -48,9 +48,10 @@
 }
 /* 학습 과목 내용 */
 .badge-text2{
-    fontsize:32px;
+    font-size:32px;
     margin-bottom:20px;
     color:#212121;
+    font-weight:bold;
 }
 /* 중단 공백 */
 .empty{
