@@ -43,8 +43,8 @@ function CatalogDetail() {
                     
                     <hr className="empty" />
 
-                    <div className='badge-explain'>
-                        <p>{explain}</p>
+                    <div className='badge-explainBox'>
+                        <p className='badge-explain'>{explain}</p>
                     </div>
 
                     <div className='timeBox'>
