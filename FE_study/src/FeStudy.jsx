@@ -22,7 +22,8 @@ function FeStudy() {
                 border: 'solid 1px #b9b9b9c4',
                 height: '60px',
                 width: '100%',
-                position: 'fixed',
+                position: 'sticky',
+                top: 0,
                 zIndex:1    /*네비게이션바가 제일 앞에오게 */
             }
             }>
@@ -49,7 +50,7 @@ function FeStudy() {
 
 
             {/* 실제 화면이 바뀌는 영역 */}
-            <div style={{ paddingTop: '60px' }}>
+            <div>
                 <Routes>
                     <Route path={"/"} element={<HomePage />}></Route>
                     <Route path="/catalog" element={<Catalog />}></Route>
