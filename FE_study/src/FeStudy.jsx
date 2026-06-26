@@ -8,11 +8,18 @@ import Catalog from './pages/Catalog';
 import Community from './pages/Community';
 import CatalogDetail from './pages/CatalogDetail';
 import PostDetail from './pages/PostDetail';
+import dummyUserData from './data/dummyUserData';
+
+
 import { useState } from 'react';
 
 function FeStudy() {
 
     const [isLoginModal, setIsLoginModal] = useState(false);
+
+    //로그인 정보 랜더링
+    const [inputId, setInputId] = useState('');
+    const [inputPw, setInputPw] = useState('');
 
 
     return (
@@ -59,19 +66,47 @@ function FeStudy() {
             </nav >
             {/* GNV */}
 
+            {/* 로그인폼 */}
             {isLoginModal && (
-                <div className="modal-overlay">
+                <div className="modal-box">
                     <div className="modal-content">
                         <h2>로그인</h2>
-                        <form>
-                            <input type="text" placeholder="아이디" />
-                            <input type="password" placeholder="비밀번호" />
-                            <button type="submit">로그인 하기</button>
+                        <form onSubmit={() => {
+                            const foundUser = dummyUserData.find(dummyUserData => dummyUserData.userId === inputId);
+
+                            if (foundUser) {
+                                
+                                if (foundUser.userPw === inputPw) {
+                                    alert(`${foundUser.userName}님 환영합니다!`);
+                                    setIsLoginModal(false);
+                                } else {
+                                    alert("비밀번호가 일치하지 않습니다.");
+                                }
+
+                            } else {
+                                alert("존재하지 않는 아이디입니다.");
+                            }
+
+                        }}>
+                            <input 
+                            type="text" 
+                            value={inputId} 
+                            onChange={(e) => setInputId(e.target.value)} 
+                            placeholder="아이디" />
+
+                            <input 
+                            type="password" 
+                            value={inputPw} 
+                            onChange={(e) => setInputPw(e.target.value)} 
+                            placeholder="비밀번호" />
+                            <button type="submit">로그인</button>
                         </form>
-                        <button onClick={()=> setIsLoginModal(false)} className="close-btn">닫기</button>
+                        <button onClick={() => setIsLoginModal(false)} className="close-btn">닫기</button>
                     </div>
                 </div>
             )}
+            {/* 로그인폼 */}
+
 
             {/* 실제 화면이 바뀌는 영역 */}
             <div>

@@ -29,6 +29,7 @@ function HomePage() {
                 </div>
                 <hr style={{ color: 'white' }} />
 
+
                 <div className='Site-Spec'>
                     {
                         siteSpecData.map((item, index)=>{
