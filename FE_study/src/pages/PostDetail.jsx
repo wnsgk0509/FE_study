@@ -1,12 +1,13 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { categories, communityPosts } from "../data/dummyCommunityData";
+import { communityPosts } from "../data/dummyCommunityData";
 import "./PostDetail.css";
 
 function PostDetail() {
     const navigate = useNavigate();
-    const [ searchParams ] = useSearchParams();
+    const [searchParams] = useSearchParams();
 
     const postId = searchParams.get("id");
+    const tab = decodeURIComponent(searchParams.get("tab") || "Q&A");
 
     const allPosts = Object.values(communityPosts).flat();
 
@@ -29,14 +30,16 @@ function PostDetail() {
             <hr />
 
             <div className="post-content">
-                <p>
-                    {post.text}
-                </p>
+                <p>{post.text}</p>
             </div>
 
             <button
                 className="back-button"
-                onClick={() => navigate("/community")}
+                onClick={() => {
+                    navigate(
+                        `/community?tab=${encodeURIComponent(tab)}`
+                    );
+                }}
             >
                 목록으로
             </button>
