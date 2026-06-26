@@ -16,10 +16,23 @@ import { useState } from 'react';
 function FeStudy() {
 
     const [isLoginModal, setIsLoginModal] = useState(false);
+    const [isLoggedIn, setIsLoggedIn]= useState(false);
 
     //로그인 정보 랜더링
     const [inputId, setInputId] = useState('');
     const [inputPw, setInputPw] = useState('');
+
+    const handleButtonClick = () =>{
+        if(isLoggedIn){
+            setIsLoggedIn(true);
+        }else{
+            setIsLoggedIn(false);
+            setIsLoginModal(true);
+        }
+        
+    };
+
+
 
 
     return (
@@ -59,9 +72,11 @@ function FeStudy() {
                         type="button"
                         className="btn btn-dark"
                         style={{ width: '100px' }}
-                        onClick={() => setIsLoginModal(true)}
-                    >로그인</button>
+                        onClick={handleButtonClick}
+                    >{isLoggedIn ? '로그아웃' : '로그인'}</button>
                 </div>
+                
+                
 
             </nav >
             {/* GNV */}
@@ -78,7 +93,6 @@ function FeStudy() {
                                 
                                 if (foundUser.userPw === inputPw) {
                                     alert(`${foundUser.userName}님 환영합니다!`);
-                                    setIsLoginModal(false);
                                 } else {
                                     alert("비밀번호가 일치하지 않습니다.");
                                 }
@@ -86,6 +100,7 @@ function FeStudy() {
                             } else {
                                 alert("존재하지 않는 아이디입니다.");
                             }
+
 
                         }}>
                             <input 
@@ -100,10 +115,14 @@ function FeStudy() {
                             onChange={(e) => setInputPw(e.target.value)} 
                             placeholder="비밀번호" />
                             <button type="submit">로그인</button>
+
                         </form>
                         <button onClick={() => setIsLoginModal(false)} className="close-btn">닫기</button>
+
                     </div>
+
                 </div>
+
             )}
             {/* 로그인폼 */}
 
