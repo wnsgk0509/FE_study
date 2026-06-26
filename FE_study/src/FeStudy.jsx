@@ -11,7 +11,7 @@ import PostDetail from './pages/PostDetail';
 import dummyUserData from './data/dummyUserData';
 
 
-import { useState } from 'react';
+import { useActionState, useState } from 'react';
 
 function FeStudy() {
 
@@ -21,16 +21,19 @@ function FeStudy() {
     //로그인 정보 랜더링
     const [inputId, setInputId] = useState('');
     const [inputPw, setInputPw] = useState('');
+    const [profile, setProfile] = useState('');
 
     const handleButtonClick = () =>{
         if(isLoggedIn){
-            setIsLoggedIn(true);
-        }else{
             setIsLoggedIn(false);
+            setProfile('');
+            
+        }else{
             setIsLoginModal(true);
         }
         
     };
+    
 
 
 
@@ -68,6 +71,9 @@ function FeStudy() {
 
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    <div className="profile">
+                        {profile && `${profile}님 환영합니다!`}
+                    </div>
                     <button
                         type="button"
                         className="btn btn-dark"
@@ -86,6 +92,7 @@ function FeStudy() {
                 <div className="modal-box">
                     <div className="modal-content">
                         <h2>로그인</h2>
+                        
                         <form onSubmit={() => {
                             const foundUser = dummyUserData.find(dummyUserData => dummyUserData.userId === inputId);
 
@@ -93,6 +100,11 @@ function FeStudy() {
                                 
                                 if (foundUser.userPw === inputPw) {
                                     alert(`${foundUser.userName}님 환영합니다!`);
+                                    setProfile(foundUser.userName);
+                                    setIsLoggedIn(true);     // 로그인 상태로 변경
+                                    setIsLoginModal(false);  // 모달창 닫기
+                                    setInputId('');          // 입력 필드 초기화
+                                    setInputPw('');          // 입력 필드 초기화
                                 } else {
                                     alert("비밀번호가 일치하지 않습니다.");
                                 }
