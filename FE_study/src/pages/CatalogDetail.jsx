@@ -41,7 +41,6 @@ function CatalogDetail() {
 
                     <h1 className="badge-text2">{text2}</h1>
                     
-                    <hr className="empty" />
 
                     <div className='badge-explainBox'>
                         <p className='badge-explain'>{explain}</p>

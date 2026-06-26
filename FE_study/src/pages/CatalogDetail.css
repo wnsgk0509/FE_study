@@ -53,13 +53,7 @@
     color:#212121;
     font-weight:bold;
 }
-/* 중단 공백 */
-.empty{
-    border:0;
-    height:1px;
-    background:#ddd;
-    margin-bottom:20px;
-}
+
 /* 학습 내용 설명 */
 .badge-explainBox{
     margin-bottom:30px;
