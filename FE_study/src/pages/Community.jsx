@@ -87,7 +87,7 @@ function Community() {
                             <span>{post.date}</span>
 
                             <span className="reply-count">
-                                답글 {post.reply}
+                                답글 {post.comments?.length || 0}
                             </span>
                         </div>
                     </article>
