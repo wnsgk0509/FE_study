@@ -9,12 +9,12 @@ import siteSpecData from '../data/SiteSpecData';
 function HomePage() {
     return (
 
-        <div className='Home-bg-color' >
+        <div className='Home-bg-color' style={{width:'100%'}} >
 
             <div className='Home-Text'>
-                <div className='Title-Text'>
-                    <h1>프론트엔드 개발의</h1>
-                    <h1 style={{ color: 'yellow' }}>뼈대부터 완성까지</h1>
+                <div className='Title-Text' style={{width:'700px'}}>
+                    <h1 style={{fontSize:'80px'}}>프론트엔드 개발의</h1>
+                    <h1 style={{ color: 'yellow', fontSize:'80px' }}>뼈대부터 완성까지</h1>
                 </div>
 
 
@@ -28,6 +28,7 @@ function HomePage() {
                     <Link to="/community"><button type="button" className="btn btn-light">커뮤니티 둘러보기</button></Link>
                 </div>
                 <hr style={{ color: 'white' }} />
+
 
                 <div className='Site-Spec'>
                     {
