@@ -1,11 +1,33 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { categories, communityPosts } from "../data/dummyCommunityData";
 import "./Community.css";
 
 function Community() {
-    const [ selectedTab, setSelectedTab ] = useState("Q&A");
     const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const [selectedTab, setSelectedTab] = useState(
+        searchParams.get("tab") || "Q&A"
+    );
+
+    useEffect(() => {
+        const tab = searchParams.get("tab");
+
+        if (tab && communityPosts[tab]) {
+            setSelectedTab(tab);
+        } else {
+            setSelectedTab("Q&A");
+        }
+    }, [searchParams]);
+
+    const changeTab = (tab) => {
+        setSelectedTab(tab);
+
+        setSearchParams({
+            tab: tab,
+        });
+    };
 
     return (
         <main className="community-page">
@@ -32,12 +54,8 @@ function Community() {
                 {categories.map((tab) => (
                     <button
                         key={tab}
-                        className={
-                            selectedTab === tab
-                                ? "tab active"
-                                : "tab"
-                        }
-                        onClick={() => setSelectedTab(tab)}
+                        className={selectedTab === tab ? "tab active" : "tab"}
+                        onClick={() => changeTab(tab)}
                     >
                         {tab}
                     </button>
@@ -45,20 +63,18 @@ function Community() {
             </div>
 
             <section className="post-list">
-                {communityPosts[ selectedTab ].map((post) => (
+                {(communityPosts[selectedTab] || []).map((post) => (
                     <article
                         key={post.id}
                         className="post-item"
-                        onClick={() =>
+                        onClick={() => {
                             navigate(
-                                `/community/communityDetail?id=${post.id}`
-                            )
-                        }
+                                `/community/communityDetail?id=${post.id}&tab=${encodeURIComponent(selectedTab)}`
+                            );
+                        }}
                     >
                         <div className="post-main">
-                            <span
-                                className={`category-badge ${post.badge}`}
-                            >
+                            <span className={`category-badge ${post.badge}`}>
                                 {selectedTab}
                             </span>
 
@@ -79,7 +95,7 @@ function Community() {
             </section>
 
             <p className="post-total">
-                {communityPosts[ selectedTab ].length}개의 게시글
+                {(communityPosts[selectedTab] || []).length}개의 게시글
             </p>
         </main>
     );
