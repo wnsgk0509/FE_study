@@ -31,19 +31,13 @@ function Community() {
         });
     };
 
-    const handleOpen = () => {
-        inputTitle.current.focus();
-        console.log(inputTitle.current.value);
-        };
-    const inputTitle = useRef(null);
-        // 입력값
-    const input=inputTitle.current.value;
-        // 커뮤니티 데이터 타이틀 값 
-    const allTimes=communityPosts.selectedTab[0].title
 
-    index[0]
-
-    
+    const [searchTerm, setSearchTerm] = useState('')
+                                                        // 데이터 미보유시 undefined 대비 안전장치
+    const currentTabPosts = communityPosts[selectedTab] || [/*빈배열*/];
+    const filteredPosts = currentTabPosts.filter((post) =>
+        post.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
 
     return (
@@ -64,11 +58,10 @@ function Community() {
                 <input
                     type="text"
                     placeholder="궁금한 내용을 검색해보세요"
-                    ref={inputTitle}
-                    onKeyDown={Enter=>{
-                        handleOpen();
-                    }}
+                    value={searchTerm}
+                    onChange={(e)=>setSearchTerm(e.target.value)}
                 />
+                
             </div>
 
             <div className="category-tabs">
@@ -84,39 +77,43 @@ function Community() {
             </div>
 
             <section className="post-list">
-                {(communityPosts[selectedTab] || []).map((post) => (
-                    <article
-                        key={post.id}
-                        className="post-item"
-                        onClick={() => {
-                            navigate(
-                                `/community/communityDetail?id=${post.id}&tab=${encodeURIComponent(selectedTab)}`
-                            );
-                        }}
-                    >
-                        <div className="post-main">
-                            <span className={`category-badge ${post.badge}`}>
-                                {selectedTab}
-                            </span>
+                {filteredPosts.length > 0 ? (
+                    filteredPosts.map((post) => (
+                        <article
+                            key={post.id}
+                            className="post-item"
+                            onClick={() => {
+                                navigate(
+                                    `/community/communityDetail?id=${post.id}&tab=${encodeURIComponent(selectedTab)}`
+                                );
+                            }}
+                        >
+                            <div className="post-main">
+                                <span className={`category-badge ${post.badge}`}>
+                                    {selectedTab}
+                                </span>
+                                <strong>{post.title}</strong>
+                            </div>
 
-                            <strong>{post.title}</strong>
-                        </div>
-
-                        <div className="post-info">
-                            <span>{post.author}</span>
-                            <span>·</span>
-                            <span>{post.date}</span>
-
-                            <span className="reply-count">
-                                답글 {post.comments?.length || 0}
-                            </span>
-                        </div>
-                    </article>
-                ))}
+                            <div className="post-info">
+                                <span>{post.author}</span>
+                                <span>·</span>
+                                <span>{post.date}</span>
+                                <span className="reply-count">
+                                    답글 {post.comments?.length || 0}
+                                </span>
+                            </div>
+                        </article>
+                    ))
+                ) : (
+                    <div className="no-result" style={{ textAlign: 'center', padding: '50px 0', color: '#888' }}>
+                        검색 결과가 없습니다.
+                    </div>
+                )}
             </section>
 
             <p className="post-total">
-                {(communityPosts[selectedTab] || []).length}개의 게시글
+                {filteredPosts.length}개의 게시글
             </p>
         </main>
     );
