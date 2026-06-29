@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect , useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { categories, communityPosts } from "../data/dummyCommunityData";
 import "./Community.css";
@@ -10,6 +10,8 @@ function Community() {
     const [selectedTab, setSelectedTab] = useState(
         searchParams.get("tab") || "Q&A"
     );
+    const allTitles = communityPosts[selectedTab].map(post => post.title);
+
 
     useEffect(() => {
         const tab = searchParams.get("tab");
@@ -29,6 +31,21 @@ function Community() {
         });
     };
 
+    const handleOpen = () => {
+        inputTitle.current.focus();
+        console.log(inputTitle.current.value);
+        };
+    const inputTitle = useRef(null);
+        // 입력값
+    const input=inputTitle.current.value;
+        // 커뮤니티 데이터 타이틀 값 
+    const allTimes=communityPosts.selectedTab[0].title
+
+    index[0]
+
+    
+
+
     return (
         <main className="community-page">
             <section className="community-header">
@@ -47,6 +64,10 @@ function Community() {
                 <input
                     type="text"
                     placeholder="궁금한 내용을 검색해보세요"
+                    ref={inputTitle}
+                    onKeyDown={Enter=>{
+                        handleOpen();
+                    }}
                 />
             </div>
 

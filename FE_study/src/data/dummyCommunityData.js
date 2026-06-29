@@ -6,7 +6,7 @@ export const categories = [
 
 export const communityPosts = {
     "Q&A": [
-        {
+            {
             id: "id1",
             title: "React에서 상태 관리를 어떻게 해야 할까요?",
             author: "김민수",
