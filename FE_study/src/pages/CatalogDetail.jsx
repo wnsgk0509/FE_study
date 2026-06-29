@@ -24,7 +24,7 @@ function CatalogDetail() {
 
     return (
         <div>
-            <div className="banner"> 
+            <div className="banner animate__animated animate__fadeIn"> 
                 <div className="img">
                     <img className="image" src={currentImg} alt={text1} />
                 </div>
