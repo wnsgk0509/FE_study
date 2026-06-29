@@ -45,7 +45,7 @@ function FeStudy() {
             <nav style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'space-around',
+                justifyContent: 'space-between',
                 gap: '150px',
                 backgroundColor: 'white',
                 border: 'solid 1px #b9b9b9c4',
@@ -58,7 +58,7 @@ function FeStudy() {
             }>
 
                 <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                    <Link to="/" style={{ textDecoration: 'none' }}><strong><span style={{ color: '#279eff', fontSize: '25px' }}>FE<span style={{ color: 'black' }}>Academy</span></span></strong>
+                    <Link to="/" style={{ textDecoration: 'none', width:'320px' }}><strong><span style={{ color: '#279eff', fontSize: '25px' }}>FE<span style={{ color: 'black' }}>Academy</span></span></strong>
                     </Link>
                 </div>
 
