@@ -72,7 +72,7 @@ function PostDetail() {
     };
 
     return (
-        <main className="post-detail-page">
+        <main className="post-detail-page animate__animated animate__fadeIn">
 
             <button
                 className="back-button"

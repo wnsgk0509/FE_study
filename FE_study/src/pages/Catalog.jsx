@@ -9,7 +9,7 @@ function Catalog() {
     const [activeText, setActiveText] = useState(null);
 
     return (
-        <div className="bgcolor">
+        <div className="bgcolor animate__animated animate__fadeIn">
              {/* 메인 배너 */}
             <div className="mainBanner">
                 <p className="main11">학습 카탈로그</p>

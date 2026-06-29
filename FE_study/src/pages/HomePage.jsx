@@ -9,7 +9,7 @@ import siteSpecData from '../data/SiteSpecData';
 function HomePage() {
     return (
 
-        <div className='Home-bg-color' style={{width:'100%'}} >
+        <div className='Home-bg-color animate__animated animate__fadeIn' style={{width:'100%'}} >
 
             <div className='Home-Text'>
                 <div className='Title-Text' style={{width:'700px'}}>

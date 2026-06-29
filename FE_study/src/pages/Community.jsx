@@ -41,7 +41,7 @@ function Community() {
 
 
     return (
-        <main className="community-page" style={{width:'100%'}}>
+        <main className="community-page animate__animated animate__fadeIn" style={{width:'100%'}}>
             <section className="community-header">
                 <div>
                     <h1>무엇이든 물어보세요</h1>
@@ -76,7 +76,7 @@ function Community() {
                 ))}
             </div>
 
-            <section className="post-list">
+            <section className="post-list animate__animated animate__fadeIn">
                 {filteredPosts.length > 0 ? (
                     filteredPosts.map((post) => (
                         <article
