@@ -13,7 +13,6 @@ function LoginForm({ dummyUserData, setProfile, setIsLoggedIn, setIsLoginModal})
         <div className="modal-box animate__animated animate__fadeIn">
 
             <div className="modal-content">
-                {/* <h2>로그인</h2> */}
                 <button  onClick={() => setIsLoginModal(false)} className="close">x</button>
                 <img className="login-profile" src={profile} />
                 <form onSubmit={(e) => {
