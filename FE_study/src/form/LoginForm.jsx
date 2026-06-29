@@ -1,4 +1,4 @@
-import '../FeStudy.css'
+import './LoginForm.css'
 import { useState } from "react";
 
 function LoginForm({ dummyUserData, setProfile, setIsLoggedIn, setIsLoginModal}) {

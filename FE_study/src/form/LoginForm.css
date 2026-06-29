@@ -1,0 +1,29 @@
+/* 화면 전체를 덮는 회색 배경 */
+.modal-box {
+  position: fixed; /* 화면에 고정 */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명한 검은색/회색 */
+  display: flex; /* 내부 컨텐츠를 중앙에 배치하기 위함 */
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* 다른 요소들보다 무조건 위에 오도록 설정 */
+}
+
+/* 로그인 폼 박스 스타일 */
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.profile{
+  margin-right:20px;
+  font-size:16px;
+  width:200px;
+  margin-top:5px;
+}
