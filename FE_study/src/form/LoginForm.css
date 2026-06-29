@@ -6,24 +6,91 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5); /* 반투명한 검은색/회색 */
+  backdrop-filter: blur(8px);
   display: flex; /* 내부 컨텐츠를 중앙에 배치하기 위함 */
   justify-content: center;
   align-items: center;
   z-index: 999; /* 다른 요소들보다 무조건 위에 오도록 설정 */
+  
 }
 
 /* 로그인 폼 박스 스타일 */
 .modal-content {
-  background-color: white;
+  background: linear-gradient(135deg, #BF9ED0 0%, #FFE8FF 100%);
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 500px;
+  height: 550px;
+  
 }
 
+/* GNV 프로필 CSS */
 .profile{
   margin-right:20px;
   font-size:16px;
   width:200px;
   margin-top:5px;
 }
+
+.login-profile{
+  margin-left:33%;
+  border-radius: 8px;
+  width:150px;
+  margin-top:50px;
+}
+
+
+.idBtn{
+  display:block;
+  width:70%;
+  height:50px;
+  padding:10px;
+  margin-bottom : 20px;
+  margin-top:50px;
+  margin-left:15%;
+  background-color: white;
+  outline: none;
+  border:0px;
+  
+}
+
+.pwBtn{
+  display:block;
+  width:70%;
+  height:50px;
+  padding:10px;
+  margin-left:15%;
+  background-color: white;
+  border:0px;
+  outline: none;
+
+}
+
+.loginBtn{
+  margin-top : 30px;
+  margin-left: 100px;
+  width:50%;
+  height:50px;
+  border:0px;
+  background-color: transparent;
+  font-weight:bold;
+
+}
+
+.close{
+  width:30px;
+  height: 30px;
+  border: 0;
+  background-color: transparent;
+  margin-left:auto;
+  font-size: 25px;
+}
+
+.login-profile{
+  margin-left:33%;
+  border-radius: 8px;
+  width:150px;
+  margin-top:50px;
+}
+

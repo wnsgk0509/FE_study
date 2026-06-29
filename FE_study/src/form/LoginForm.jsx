@@ -1,5 +1,6 @@
 import './LoginForm.css'
 import { useState } from "react";
+import profile from '../assets/totoro.png'
 
 function LoginForm({ dummyUserData, setProfile, setIsLoggedIn, setIsLoginModal}) {
 
@@ -10,9 +11,11 @@ function LoginForm({ dummyUserData, setProfile, setIsLoggedIn, setIsLoginModal})
 
     return (
         <div className="modal-box">
-            <div className="modal-content">
-                <h2>로그인</h2>
 
+            <div className="modal-content">
+                {/* <h2>로그인</h2> */}
+                <button  onClick={() => setIsLoginModal(false)} className="close">x</button>
+                <img className="login-profile" src={profile} />
                 <form onSubmit={(e) => {
                     e.preventDefault();
                     const foundUser = dummyUserData.find(dummyUserData => dummyUserData.userId === inputId);
@@ -36,21 +39,21 @@ function LoginForm({ dummyUserData, setProfile, setIsLoggedIn, setIsLoginModal})
 
 
                 }}>
-                    <input
+                    <input className = 'idBtn'
                         type="text"
                         value={inputId}
                         onChange={(e) => setInputId(e.target.value)}
                         placeholder="아이디" />
 
-                    <input
+                    <input className = 'pwBtn'
                         type="password"
                         value={inputPw}
                         onChange={(e) => setInputPw(e.target.value)}
                         placeholder="비밀번호" />
-                    <button type="submit">로그인</button>
+                    <button className = 'loginBtn' type="submit">로그인</button>
 
                 </form>
-                <button onClick={() => setIsLoginModal(false)} className="close-btn">닫기</button>
+                
 
             </div>
 
