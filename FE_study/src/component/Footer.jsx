@@ -1,0 +1,61 @@
+function Footer(){
+    return(
+        <footer style={{ backgroundColor: '#101828', padding: '40px 50px', color: '#EAECF0', margin: '0px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+
+                    {/* 왼쪽: 로고 및 사이트 설명 */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'px' }}>
+                        <div>
+                            <strong>
+                                <span style={{ fontSize: '28px', color: '#FFFFFF', textDecoration: 'none' }}>
+                                    FE<span style={{ color: '#279eff' }}>Academy</span>
+                                </span>
+                            </strong>
+                        </div>
+                        <div style={{ fontSize: '15px', color: '#98A2B3' }}>
+                            프론트엔드 개발의 뼈대부터 완성까지.<br />
+                            체계적인 커리큘럼으로 실력을 키우세요.
+                        </div>
+                    </div>
+                    {/* 왼쪽: 로고 및 사이트 설명 */}
+
+                    {/* 오른쪽: 링크 섹션 */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', textAlign: 'left', padding: '20px' }}>
+                        <div>
+                            <strong><span style={{ fontSize: '16px', color: '#FFFFFF' }}>링크</span></strong>
+                        </div>
+                        <div>
+                            <a
+                                href='https://github.com/wnsgk0509/FE_study'
+                                target='_blank'
+                                style={{
+                                    fontSize: '15px',
+                                    color: '#279eff',
+                                    textDecoration: 'none'
+                                }}
+                            >
+                                <strong>GitHub</strong>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                {/* 오른쪽: 링크 섹션 */}
+
+                {/* 하단 저작권 표시 */}
+                <div style={{
+                    marginTop: '40px',
+                    paddingTop: '20px',
+                    borderTop: '1px solid #1D2939',
+                    textAlign: 'center',
+                    fontSize: '13px',
+                    color: '#667085'
+                }}>
+                    © 2026 FE-Academy. All rights reserved.
+                </div>
+                {/* 하단 저작권 표시 */}
+
+            </footer>
+    )
+}
+export default Footer;

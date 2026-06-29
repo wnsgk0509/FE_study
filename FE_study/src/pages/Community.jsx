@@ -41,7 +41,7 @@ function Community() {
 
 
     return (
-        <main className="community-page">
+        <main className="community-page" style={{width:'100%'}}>
             <section className="community-header">
                 <div>
                     <h1>무엇이든 물어보세요</h1>
