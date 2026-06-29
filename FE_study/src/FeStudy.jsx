@@ -15,25 +15,24 @@ import { useActionState, useState } from 'react';
 
 function FeStudy() {
 
-    const [isLoginModal, setIsLoginModal] = useState(false);
-    const [isLoggedIn, setIsLoggedIn]= useState(false);
+    const [ isLoginModal, setIsLoginModal ] = useState(false);
+    const [ isLoggedIn, setIsLoggedIn ] = useState(false);
 
     //로그인 정보 랜더링
-    const [inputId, setInputId] = useState('');
-    const [inputPw, setInputPw] = useState('');
-    const [profile, setProfile] = useState('');
+    const [ inputId, setInputId ] = useState('');
+    const [ inputPw, setInputPw ] = useState('');
+    const [ profile, setProfile ] = useState('');
 
-    const handleButtonClick = () =>{
-        if(isLoggedIn){
+    const handleButtonClick = () => {
+        if (isLoggedIn) {
             setIsLoggedIn(false);
             setProfile('');
-            
-        }else{
+
+        } else {
             setIsLoginModal(true);
         }
-        
+
     };
-    
 
 
 
@@ -58,7 +57,7 @@ function FeStudy() {
             }>
 
                 <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                    <Link to="/" style={{ textDecoration: 'none', width:'320px' }}><strong><span style={{ color: '#279eff', fontSize: '25px' }}>FE<span style={{ color: 'black' }}>Academy</span></span></strong>
+                    <Link to="/" style={{ textDecoration: 'none', width: '320px' }}><strong><span style={{ color: '#279eff', fontSize: '25px' }}>FE<span style={{ color: 'black' }}>Academy</span></span></strong>
                     </Link>
                 </div>
 
@@ -81,8 +80,8 @@ function FeStudy() {
                         onClick={handleButtonClick}
                     >{isLoggedIn ? '로그아웃' : '로그인'}</button>
                 </div>
-                
-                
+
+
 
             </nav >
             {/* GNV */}
@@ -92,12 +91,12 @@ function FeStudy() {
                 <div className="modal-box">
                     <div className="modal-content">
                         <h2>로그인</h2>
-                        
+
                         <form onSubmit={() => {
                             const foundUser = dummyUserData.find(dummyUserData => dummyUserData.userId === inputId);
 
                             if (foundUser) {
-                                
+
                                 if (foundUser.userPw === inputPw) {
                                     alert(`${foundUser.userName}님 환영합니다!`);
                                     setProfile(foundUser.userName);
@@ -115,17 +114,17 @@ function FeStudy() {
 
 
                         }}>
-                            <input 
-                            type="text" 
-                            value={inputId} 
-                            onChange={(e) => setInputId(e.target.value)} 
-                            placeholder="아이디" />
+                            <input
+                                type="text"
+                                value={inputId}
+                                onChange={(e) => setInputId(e.target.value)}
+                                placeholder="아이디" />
 
-                            <input 
-                            type="password" 
-                            value={inputPw} 
-                            onChange={(e) => setInputPw(e.target.value)} 
-                            placeholder="비밀번호" />
+                            <input
+                                type="password"
+                                value={inputPw}
+                                onChange={(e) => setInputPw(e.target.value)}
+                                placeholder="비밀번호" />
                             <button type="submit">로그인</button>
 
                         </form>
@@ -146,7 +145,7 @@ function FeStudy() {
                     <Route path="/catalog" element={<Catalog />}></Route>
                     <Route path={"/community"} element={<Community />}></Route>
                     <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
-                    <Route path='/community/communityDetail' element={<PostDetail />}></Route>
+                    <Route path="/community/communityDetail" element={<PostDetail isLoggedIn={isLoggedIn} profile={profile}/>}></Route>
                     <Route path="/catalog/:id" element={<CatalogDetail />} />
 
                 </Routes>
