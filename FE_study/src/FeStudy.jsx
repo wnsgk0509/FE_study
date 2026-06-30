@@ -23,13 +23,17 @@ function FeStudy() {
     //로그인 정보 랜더링
     const [profile, setProfile] = useState('');
 
-    //커뮤니티 댓글데이터 로컬스터리지 저장
-    window.localStorage.setItem('postsData', JSON.stringify(communityPosts));
-
-    const local_community_data_str = window.localStorage.getItem('postsData');
-    const local_community_data = JSON.parse(local_community_data_str);
-
-    console.log(local_community_data);
+    //  로컬 스토리지 데이터를 관리할 State 추가 (최초 1회만 실행됨)
+    const [localCommunityData, setLocalCommunityData] = useState(() => {
+        const isData = window.localStorage.getItem('postsData');
+        if (isData) {
+            return JSON.parse(isData); // 저장된 데이터가 있으면 불러옴
+        } else {
+            // 없으면 더미 데이터를 저장하고 반환
+            window.localStorage.setItem('postsData', JSON.stringify(communityPosts));
+            return communityPosts;
+        }
+    });
 
     const handleButtonClick = () => {
         if (isLoggedIn) {
@@ -50,12 +54,12 @@ function FeStudy() {
 
         < div >
             {/* GNV */}
-            <div style={{marginBottom:'60px'}}>
-            <GNV
-                profile={profile}
-                isLoggedIn={isLoggedIn}
-                handleButtonClick={handleButtonClick}
-            />
+            <div style={{ marginBottom: '60px' }}>
+                <GNV
+                    profile={profile}
+                    isLoggedIn={isLoggedIn}
+                    handleButtonClick={handleButtonClick}
+                />
             </div>
             {/* GNV */}
 
@@ -82,7 +86,9 @@ function FeStudy() {
                         {<PostDetail
                             isLoggedIn={isLoggedIn}
                             profile={profile}
-                            local_community_data={local_community_data}
+                            localCommunityData={localCommunityData}
+                            setLocalCommunityData={setLocalCommunityData}
+
                         />}>
                     </Route>
 

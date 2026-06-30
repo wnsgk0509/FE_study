@@ -3,15 +3,16 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { communityPosts } from "../data/dummyCommunityData";
 import "./PostDetail.css";
 
-function PostDetail({ isLoggedIn, profile, local_community_data }) {
+function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunityData }) {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
 
     const postId = searchParams.get("id");
     const tab = decodeURIComponent(searchParams.get("tab") || "Q&A");
 
-    const allPosts = Object.values(local_community_data).flat();
+    const allPosts = Object.values(localCommunityData).flat();
 
+    //post에는 상세페이지에 들어와있는 데이터를 가지고있음(객체).
     const post = allPosts.find((item) => item.id === postId);
 
     if (!post) {
@@ -66,10 +67,21 @@ function PostDetail({ isLoggedIn, profile, local_community_data }) {
         };
 
 
+        // 1. 현재 화면의 댓글 리스트 업데이트
         setComments([...comments, newComment]);
         setComment("");
 
-        window.localStorage.setItem("postsData", JSON.stringify(updatedCommunityData));
+        // 2. 전체 데이터(localCommunityData) 구조 안에서 현재 게시글의 댓글만 교체
+        const updatedCommunityData = {
+            ...localCommunityData, 
+            [tab]: localCommunityData[tab].map((item) =>
+                item.id === postId ? { ...item, comments: [...comments, newComment] } : item
+            ), 
+        };
+
+        // 3. 부모 State 갱신 및 로컬 스토리지에 새 데이터 저장
+        setLocalCommunityData(updatedCommunityData);
+        window.localStorage.setItem('postsData', JSON.stringify(updatedCommunityData));
 
     };
 
@@ -152,7 +164,7 @@ function PostDetail({ isLoggedIn, profile, local_community_data }) {
 
                 <div className="comment-list">
 
-                    //댓글 그려주는 영역
+                    {/* 댓글 그려주는 영역 */}
                     {comments.map((item) => (
 
                         <div
