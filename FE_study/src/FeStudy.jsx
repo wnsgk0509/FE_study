@@ -13,24 +13,42 @@ import GNV from './component/GNV';
 import { useState } from 'react';
 import LoginForm from './form/LoginForm';
 import Footer from './component/Footer';
+import { communityPosts } from './data/dummyCommunityData';
 
 function FeStudy() {
 
-    const [ isLoginModal, setIsLoginModal ] = useState(false);
-    
+    const [isLoginModal, setIsLoginModal] = useState(false);
+
     // ✅ 1. 로그인 상태를 로컬스토리지와 연동 (중복 제거 완료)
-    const [ isLoggedIn, setIsLoggedIn ] = useState(() => {
+    const [isLoggedIn, setIsLoggedIn] = useState(() => {
         return localStorage.getItem('isLogIn') === 'true';
     });
 
     // ✅ 2. 프로필 이름도 새로고침 시 로컬스토리지의 유저 정보에서 꺼내오기
-    const [ profile, setProfile ] = useState(() => {
+    const [profile, setProfile] = useState(() => {
         const savedUser = localStorage.getItem('user');
         if (savedUser) {
             const userObj = JSON.parse(savedUser);
             return userObj.userName; // 저장되어 있던 유저의 이름 반환
         }
         return '';
+    })
+    const [isLoginModal, setIsLoginModal] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    //로그인 정보 랜더링
+    const [profile, setProfile] = useState('');
+
+    //  로컬 스토리지 데이터를 관리할 State 추가 (최초 1회만 실행됨)
+    const [localCommunityData, setLocalCommunityData] = useState(() => {
+        const isData = window.localStorage.getItem('postsData');
+        if (isData) {
+            return JSON.parse(isData); // 저장된 데이터가 있으면 불러옴
+        } else {
+            // 없으면 더미 데이터를 저장하고 반환
+            window.localStorage.setItem('postsData', JSON.stringify(communityPosts));
+            return communityPosts;
+        }
     });
 
     // 로그인 / 로그아웃 핸들러 버튼 클릭시
@@ -50,12 +68,12 @@ function FeStudy() {
     return (
         <div>
             {/* GNV */}
-            <div style={{marginBottom:'60px'}}>
-            <GNV
-                profile={profile}
-                isLoggedIn={isLoggedIn}
-                handleButtonClick={handleButtonClick}
-            />
+            <div style={{ marginBottom: '60px' }}>
+                <GNV
+                    profile={profile}
+                    isLoggedIn={isLoggedIn}
+                    handleButtonClick={handleButtonClick}
+                />
             </div>
             {/* GNV */}
 
@@ -79,14 +97,23 @@ function FeStudy() {
                     <Route path="/catalog" element={<Catalog />}></Route>
                     <Route path={"/community"} element={<Community />}></Route>
                     <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
-                    <Route path="/community/communityDetail" element={<PostDetail isLoggedIn={isLoggedIn} profile={profile}/>}></Route>
+                    <Route path="/community/communityDetail" element=
+                        {<PostDetail
+                            isLoggedIn={isLoggedIn}
+                            profile={profile}
+                            localCommunityData={localCommunityData}
+                            setLocalCommunityData={setLocalCommunityData}
+
+                        />}>
+                    </Route>
+
                     <Route path="/catalog/:id" element={<CatalogDetail />} />
                 </Routes>
             </div>
             {/* 실제 화면이 바뀌는 영역 */}
 
             {/* Footer */}
-            <Footer/>
+            <Footer />
             {/* Footer */}
         </div>
     )
