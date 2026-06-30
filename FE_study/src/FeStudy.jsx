@@ -33,11 +33,7 @@ function FeStudy() {
         }
         return '';
     })
-    const [isLoginModal, setIsLoginModal] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    //로그인 정보 랜더링
-    const [profile, setProfile] = useState('');
 
     //  로컬 스토리지 데이터를 관리할 State 추가 (최초 1회만 실행됨)
     const [localCommunityData, setLocalCommunityData] = useState(() => {
