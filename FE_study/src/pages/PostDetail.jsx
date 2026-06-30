@@ -41,7 +41,7 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
 
 
 
-
+    //게시글 좋아요 기능
     const toggleLike = () => {
         if (!isLoggedIn) {
             alert("로그인 후 좋아요를 누를 수 있습니다.");
@@ -51,6 +51,7 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
         setLiked(!liked);
     };
 
+    //댓글 기능
     const addComment = () => {
         //로그인 검증
         if (!isLoggedIn) {
@@ -65,8 +66,7 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
             id: Date.now(),
             author: profile || "익명",
             date: new Date().toLocaleString("ko-KR"),
-            likes: 0,
-            liked: false,
+            likedUsers: [],
             content: comment,
         };
 
@@ -89,7 +89,7 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
 
     };
 
-    //로그인 검증(좋아요)
+    //댓글 좋아요 기능
     const toggleCommentLike = (id) => {
         if (!isLoggedIn) {
             alert("로그인 후 좋아요를 누를 수 있습니다.");
@@ -98,12 +98,24 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
         //변경된 댓글 목록을 변수에 먼저 담습니다.
         const updatedComments = comments.map((item) => {
             if (item.id === id) {
+                // 기존 더미 데이터에는 likedUsers 배열이 없을 수 있으므로 방어 코드를 작성합니다.
+                const currentLikedUsers = item.likedUsers || [];
+                
+                // 내 이름이 배열에 있는지 확인 (있으면 true, 없으면 false)
+                const isLikedByMe = currentLikedUsers.includes(profile);
+
+                let newLikedUsers;
+                if (isLikedByMe) {
+                    // 이미 눌렀다면? 내 이름을 배열에서 걸러냄(제거)
+                    newLikedUsers = currentLikedUsers.filter((user) => user !== profile);
+                } else {
+                    // 안 눌렀다면? 배열 끝에 내 이름을 추가
+                    newLikedUsers = [...currentLikedUsers, profile];
+                }
+
                 return {
                     ...item,
-                    liked: !item.liked,
-                    likes: item.liked
-                        ? item.likes - 1
-                        : item.likes + 1,
+                    likedUsers: newLikedUsers, // 업데이트된 배열로 교체
                 };
             }
 
@@ -196,10 +208,12 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
                             <p>{item.content}</p>
 
                             <button
-                                className={`comment-like-btn ${item.liked ? "liked" : ""}`}
+                                className={`comment-like-btn ${
+                                    item.likedUsers && item.likedUsers.includes(profile) 
+                                    ? "liked" : ""}`}
                                 onClick={() => toggleCommentLike(item.id)}
                             >
-                                👍 {item.likes}
+                                👍 {item.likedUsers ? item.likedUsers.length : (item.likes || 0)}
                             </button>
 
                         </div>
