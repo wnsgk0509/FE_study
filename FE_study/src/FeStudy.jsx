@@ -19,12 +19,12 @@ function FeStudy() {
 
     const [isLoginModal, setIsLoginModal] = useState(false);
 
-    // ✅ 1. 로그인 상태를 로컬스토리지와 연동 (중복 제거 완료)
+    // 로그인 상태를 로컬스토리지와 연동 (중복 제거 완료)
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
         return localStorage.getItem('isLogIn') === 'true';
     });
 
-    // ✅ 2. 프로필 이름도 새로고침 시 로컬스토리지의 유저 정보에서 꺼내오기
+    //  프로필 이름도 새로고침 시 로컬스토리지의 유저 정보에서 꺼내오기
     const [profile, setProfile] = useState(() => {
         const savedUser = localStorage.getItem('user');
         if (savedUser) {
