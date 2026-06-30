@@ -50,11 +50,13 @@ function FeStudy() {
 
         < div >
             {/* GNV */}
+            <div style={{marginBottom:'60px'}}>
             <GNV
                 profile={profile}
                 isLoggedIn={isLoggedIn}
                 handleButtonClick={handleButtonClick}
             />
+            </div>
             {/* GNV */}
 
             {/* 로그인폼 */}

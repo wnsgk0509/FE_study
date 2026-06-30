@@ -15,7 +15,7 @@ function GNV({ profile, isLoggedIn, handleButtonClick }){
                 border: 'solid 1px #b9b9b9c4',
                 height: '60px',
                 width: '100%',
-                position: 'sticky',
+                position: 'fixed',
                 top: 0,
                 zIndex: 1    /*네비게이션바가 제일 앞에오게 */
             }
