@@ -7,6 +7,16 @@ function LoginForm({ dummyUserData, setProfile, setIsLoggedIn, setIsLoginModal})
     const [inputId, setInputId] = useState('');
     const [inputPw, setInputPw] = useState('');
 
+    const [isLogIn, setIsLogIn] = useState(() =>{
+        const savedStatus = localStorage.getItem('isLogIn');
+        return savedStatus === 'true';
+    })
+
+    const [user, setUser] = useState(()=>{
+        const savedUser = localStorage.getItem('user');
+        return savedUser ? JSON.parse(savedUser): null;
+    })
+    
 
 
     return (
@@ -23,6 +33,8 @@ function LoginForm({ dummyUserData, setProfile, setIsLoggedIn, setIsLoginModal})
 
                         if (foundUser.userPw === inputPw) {
                             alert(`${foundUser.userName}님 환영합니다!`);
+                            localStorage.setItem('isLogIn', 'true'); // 로그인 여부 저장
+                            localStorage.setItem('user', JSON.stringify(foundUser)); // 유저 정보 객체를 문자열로 포장해서 저장 
                             setProfile(foundUser.userName);
                             setIsLoggedIn(true);     // 로그인 상태로 변경
                             setIsLoginModal(false);  // 모달창 닫기

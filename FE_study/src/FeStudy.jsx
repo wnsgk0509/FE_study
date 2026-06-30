@@ -10,35 +10,45 @@ import CatalogDetail from './pages/CatalogDetail';
 import PostDetail from './pages/PostDetail';
 import dummyUserData from './data/dummyUserData';
 import GNV from './component/GNV';
-import {useState } from 'react';
+import { useState } from 'react';
 import LoginForm from './form/LoginForm';
 import Footer from './component/Footer';
 
 function FeStudy() {
 
     const [ isLoginModal, setIsLoginModal ] = useState(false);
-    const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+    
+    // ✅ 1. 로그인 상태를 로컬스토리지와 연동 (중복 제거 완료)
+    const [ isLoggedIn, setIsLoggedIn ] = useState(() => {
+        return localStorage.getItem('isLogIn') === 'true';
+    });
 
-    //로그인 정보 랜더링
-    const [ profile, setProfile ] = useState('');
+    // ✅ 2. 프로필 이름도 새로고침 시 로컬스토리지의 유저 정보에서 꺼내오기
+    const [ profile, setProfile ] = useState(() => {
+        const savedUser = localStorage.getItem('user');
+        if (savedUser) {
+            const userObj = JSON.parse(savedUser);
+            return userObj.userName; // 저장되어 있던 유저의 이름 반환
+        }
+        return '';
+    });
 
+    // 로그인 / 로그아웃 핸들러 버튼 클릭시
     const handleButtonClick = () => {
         if (isLoggedIn) {
+            // 🚨 로그아웃 시 로컬스토리지 청소하기!
+            localStorage.removeItem('isLogIn');
+            localStorage.removeItem('user');
+
             setIsLoggedIn(false);
             setProfile('');
-
         } else {
             setIsLoginModal(true);
         }
-
     };
 
-
-
-
     return (
-
-        < div >
+        <div>
             {/* GNV */}
             <div style={{marginBottom:'60px'}}>
             <GNV
@@ -50,14 +60,15 @@ function FeStudy() {
             {/* GNV */}
 
             {/* 로그인폼 */}
-            {isLoginModal && (<LoginForm
-                isLoginModal={isLoginModal}
-                setIsLoginModal={setIsLoginModal}     // 모달을 닫기 위해 전달
-                dummyUserData={dummyUserData}         // 유저 데이터 검증을 위해 전달
-                setProfile={setProfile}               // 프로필 이름을 변경하기 위해 전달
-                setIsLoggedIn={setIsLoggedIn}         // 로그인 상태를 변경하기 위해 전달
-            />)}
-            {/* 로그인폼 */}
+            {isLoginModal && (
+                <LoginForm
+                    isLoginModal={isLoginModal}
+                    setIsLoginModal={setIsLoginModal}     // 모달을 닫기 위해 전달
+                    dummyUserData={dummyUserData}         // 유저 데이터 검증을 위해 전달
+                    setProfile={setProfile}               // 프로필 이름을 변경하기 위해 전달
+                    setIsLoggedIn={setIsLoggedIn}         // 로그인 상태를 변경하기 위해 전달
+                />
+            )}
             {/* 로그인폼 */}
 
 
@@ -70,7 +81,6 @@ function FeStudy() {
                     <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
                     <Route path="/community/communityDetail" element={<PostDetail isLoggedIn={isLoggedIn} profile={profile}/>}></Route>
                     <Route path="/catalog/:id" element={<CatalogDetail />} />
-
                 </Routes>
             </div>
             {/* 실제 화면이 바뀌는 영역 */}
@@ -78,8 +88,7 @@ function FeStudy() {
             {/* Footer */}
             <Footer/>
             {/* Footer */}
-
-        </div >
+        </div>
     )
 }
 

@@ -35,7 +35,11 @@ function PostDetail({ isLoggedIn, profile }) {
 
     const [ liked, setLiked ] = useState(false);
     const [ comments, setComments ] = useState(post.comments || []);
-    const [ comment, setComment ] = useState("");
+    const [ comment, setComment ] = useState(''); 
+
+
+
+    
 
     const toggleLike = () => {
         if (!isLoggedIn) {
@@ -63,7 +67,7 @@ function PostDetail({ isLoggedIn, profile }) {
         };
 
         setComments([ ...comments, newComment ]);
-        setComment("");
+        setComment('');
     };
 
     const toggleCommentLike = (id) => {

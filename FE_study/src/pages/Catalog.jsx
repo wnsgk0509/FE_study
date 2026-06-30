@@ -15,7 +15,7 @@ function Catalog() {
                 <p className="main11">학습 카탈로그</p>
                 <p className="main12">총 12개의 코스가 준비되어 있습니다.</p>
             </div>
-            
+            {/* 버튼 클릭시 해당하는 탭 창 출력 */}
             <div className="main2Banner">
                 <button 
                     onClick={() => setActiveText(null)} 
@@ -48,7 +48,7 @@ function Catalog() {
                     React
                 </button>
             </div>
-            
+            {/* 상세페이지 컴포넌트 박스 */}
             <div className="Box"> 
                 {dummyData
                     .filter(item => activeText === null || item.value.text1 === activeText)
