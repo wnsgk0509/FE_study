@@ -9,13 +9,13 @@ import reactLogo from "../assets/REACT.png";
 
 function CatalogDetail() {
     const { id } = useParams(); 
-
+    // 존재하지 않는 페이지 식별
     const currentItem = dummyData.find(item => item.id === Number(id));
 
     if (!currentItem) return <div>페이지를 찾을 수 없습니다.</div>;
-    
+    //더미데이터 value 안에있는 것 , 넘겨 받기
     const { text1, text2, difficult, explain, time, videoUrl, links = [], content = [] } = currentItem.value;
-
+    //text1과 일치하는것과 맞는 로고 지정
     let currentImg;
     if (text1 === "HTML") currentImg = htmlLogo;
     else if (text1 === "CSS") currentImg = cssLogo;
@@ -26,9 +26,9 @@ function CatalogDetail() {
         <div>
             <div className="banner animate__animated animate__fadeIn"> 
                 <div className="img">
-                    <img className="image" src={currentImg} alt={text1} />
+                    <img className="image" src={currentImg} alt={text1} /> {/*text1 과 일치하는 로고 출력*/}
                 </div>
-
+            {/* 상단 배너 학습 과목 설명 텍스트 박스 */}
                 <div className="explain">
                     <div className="text-box">
                         <span className="badge-text1">
@@ -63,6 +63,7 @@ function CatalogDetail() {
                             <h3 className="mainText">
                                 다른 과목 바로가기
                             </h3>
+                            {/* 더미데이터 links에서 데이터를 받아와서 maps를 이용해 각 페이지에 출력 */}
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                 {links.map((item, index) => (
                                     <li key={index} style={{ marginBottom: '8px' }}>
@@ -76,6 +77,7 @@ function CatalogDetail() {
                             </ul>
                         </div>
                     </div>
+                    {/* 아코디언 컴포넌트 출력 */}
                         <div className='accordion'>
                             <Accordion list={content} />
                         </div>
@@ -90,7 +92,7 @@ function CatalogDetail() {
 // 💡 아코디언 분할 및 토글 관리 컴포넌트
 function Accordion({ list }) {
     const [openIndex, setOpenIndex] = useState(null);
-
+    // 배너를 클릭했을때 닫혀있다면 열어주고 열려있다면 닫아준다.
     const handleToggle = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
@@ -107,6 +109,7 @@ function Accordion({ list }) {
         return (
             <div className='accordion-box'>
                 <div 
+                // 클릭했을때 handleToggle 함수 실행
                     onClick={() => handleToggle(index)} 
                     className='cqTextBox'
                     style={{background: isOpen ? '#f1f3f5' : '#fcfcfc'}}
@@ -114,7 +117,7 @@ function Accordion({ list }) {
                     <span className='cqTextBanner'>{title}</span>
                     <span style={{ color: '#888' }}>{isOpen ? "▲" : "▼"}</span>
                 </div>
-
+                {/* 배너를 열었을때 map을 돌려서 sub 데이터를 출력*/}
                 {isOpen && (
                     <div className='subTitle-All'>
                         {subTitles.length > 0 ? (
