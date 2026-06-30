@@ -10,17 +10,26 @@ import CatalogDetail from './pages/CatalogDetail';
 import PostDetail from './pages/PostDetail';
 import dummyUserData from './data/dummyUserData';
 import GNV from './component/GNV';
-import {useState } from 'react';
+import { useState } from 'react';
 import LoginForm from './form/LoginForm';
 import Footer from './component/Footer';
+import { communityPosts } from './data/dummyCommunityData';
 
 function FeStudy() {
 
-    const [ isLoginModal, setIsLoginModal ] = useState(false);
-    const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+    const [isLoginModal, setIsLoginModal] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     //로그인 정보 랜더링
-    const [ profile, setProfile ] = useState('');
+    const [profile, setProfile] = useState('');
+
+    //커뮤니티 댓글데이터 로컬스터리지 저장
+    window.localStorage.setItem('postsData', JSON.stringify(communityPosts));
+
+    const local_community_data_str = window.localStorage.getItem('postsData');
+    const local_community_data = JSON.parse(local_community_data_str);
+
+    console.log(local_community_data);
 
     const handleButtonClick = () => {
         if (isLoggedIn) {
@@ -32,6 +41,7 @@ function FeStudy() {
         }
 
     };
+
 
 
 
@@ -66,7 +76,14 @@ function FeStudy() {
                     <Route path="/catalog" element={<Catalog />}></Route>
                     <Route path={"/community"} element={<Community />}></Route>
                     <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
-                    <Route path="/community/communityDetail" element={<PostDetail isLoggedIn={isLoggedIn} profile={profile}/>}></Route>
+                    <Route path="/community/communityDetail" element=
+                        {<PostDetail
+                            isLoggedIn={isLoggedIn}
+                            profile={profile}
+                            local_community_data={local_community_data}
+                        />}>
+                    </Route>
+
                     <Route path="/catalog/:id" element={<CatalogDetail />} />
 
                 </Routes>
@@ -74,7 +91,7 @@ function FeStudy() {
             {/* 실제 화면이 바뀌는 영역 */}
 
             {/* Footer */}
-            <Footer/>
+            <Footer />
             {/* Footer */}
 
         </div >

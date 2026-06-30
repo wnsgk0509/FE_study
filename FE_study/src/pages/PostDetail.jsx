@@ -3,14 +3,14 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { communityPosts } from "../data/dummyCommunityData";
 import "./PostDetail.css";
 
-function PostDetail({ isLoggedIn, profile }) {
+function PostDetail({ isLoggedIn, profile, local_community_data }) {
     const navigate = useNavigate();
-    const [ searchParams ] = useSearchParams();
+    const [searchParams] = useSearchParams();
 
     const postId = searchParams.get("id");
     const tab = decodeURIComponent(searchParams.get("tab") || "Q&A");
 
-    const allPosts = Object.values(communityPosts).flat();
+    const allPosts = Object.values(local_community_data).flat();
 
     const post = allPosts.find((item) => item.id === postId);
 
@@ -33,9 +33,9 @@ function PostDetail({ isLoggedIn, profile }) {
 
     const username = profile;
 
-    const [ liked, setLiked ] = useState(false);
-    const [ comments, setComments ] = useState(post.comments || []);
-    const [ comment, setComment ] = useState("");
+    const [liked, setLiked] = useState(false);
+    const [comments, setComments] = useState(post.comments || []);
+    const [comment, setComment] = useState("");
 
     const toggleLike = () => {
         if (!isLoggedIn) {
@@ -47,10 +47,13 @@ function PostDetail({ isLoggedIn, profile }) {
     };
 
     const addComment = () => {
+        //로그인 검증
         if (!isLoggedIn) {
             alert("로그인 후 댓글을 작성할 수 있습니다.");
             return;
         }
+
+        //공백 동작x
         if (comment.trim() === "") return;
 
         const newComment = {
@@ -62,10 +65,15 @@ function PostDetail({ isLoggedIn, profile }) {
             content: comment,
         };
 
-        setComments([ ...comments, newComment ]);
+
+        setComments([...comments, newComment]);
         setComment("");
+
+        window.localStorage.setItem("postsData", JSON.stringify(updatedCommunityData));
+
     };
 
+    //로그인 검증(좋아요)
     const toggleCommentLike = (id) => {
         if (!isLoggedIn) {
             alert("로그인 후 좋아요를 누를 수 있습니다.");
@@ -87,6 +95,8 @@ function PostDetail({ isLoggedIn, profile }) {
                 return item;
             })
         );
+
+
     };
 
     return (
@@ -142,6 +152,7 @@ function PostDetail({ isLoggedIn, profile }) {
 
                 <div className="comment-list">
 
+                    //댓글 그려주는 영역
                     {comments.map((item) => (
 
                         <div
