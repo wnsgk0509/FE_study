@@ -1,6 +1,6 @@
 import { useState, useEffect , useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { categories, communityPosts } from "../data/dummyCommunityData";
+import { categories} from "../data/dummyCommunityData";
 import "./Community.css";
 
 function Community({localCommunityData}) {

@@ -34,13 +34,13 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
 
     const username = profile;
 
-    const [ liked, setLiked ] = useState(false);
-    const [ comments, setComments ] = useState(post.comments || []);
-    const [ comment, setComment ] = useState(''); 
+    const [liked, setLiked] = useState(false);
+    const [comments, setComments] = useState(post.comments || []);
+    const [comment, setComment] = useState('');
 
 
 
-    
+
 
     const toggleLike = () => {
         if (!isLoggedIn) {
@@ -71,19 +71,19 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
         };
 
 
-        // 1. 현재 화면의 댓글 리스트 업데이트
+        // 현재 화면의 댓글 리스트 업데이트
         setComments([...comments, newComment]);
         setComment("");
 
-        // 2. 전체 데이터(localCommunityData) 구조 안에서 현재 게시글의 댓글만 교체
+        //  전체 데이터(localCommunityData) 구조 안에서 현재 게시글의 댓글만 교체
         const updatedCommunityData = {
-            ...localCommunityData, 
+            ...localCommunityData,
             [tab]: localCommunityData[tab].map((item) =>
                 item.id === postId ? { ...item, comments: [...comments, newComment] } : item
-            ), 
+            ),
         };
 
-        // 3. 부모 State 갱신 및 로컬 스토리지에 새 데이터 저장
+        //  부모 State 갱신 및 로컬 스토리지에 새 데이터 저장
         setLocalCommunityData(updatedCommunityData);
         window.localStorage.setItem('postsData', JSON.stringify(updatedCommunityData));
 
@@ -95,22 +95,34 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
             alert("로그인 후 좋아요를 누를 수 있습니다.");
             return;
         }
+        //변경된 댓글 목록을 변수에 먼저 담습니다.
+        const updatedComments = comments.map((item) => {
+            if (item.id === id) {
+                return {
+                    ...item,
+                    liked: !item.liked,
+                    likes: item.liked
+                        ? item.likes - 1
+                        : item.likes + 1,
+                };
+            }
 
-        setComments(
-            comments.map((item) => {
-                if (item.id === id) {
-                    return {
-                        ...item,
-                        liked: !item.liked,
-                        likes: item.liked
-                            ? item.likes - 1
-                            : item.likes + 1,
-                    };
-                }
+            return item;
+        });
+        setComments(updatedComments);
 
-                return item;
-            })
-        );
+        // 전체 데이터 구조 업데이트
+        const updatedCommunityData = {
+            ...localCommunityData,
+            [tab]: localCommunityData[tab].map((item) =>
+                item.id === postId ? { ...item, comments: updatedComments } : item
+            ),
+        };
+
+        setLocalCommunityData(updatedCommunityData);
+        //  로컬 스토리지 저장
+        window.localStorage.setItem("postsData", JSON.stringify(updatedCommunityData));
+
 
 
     };
