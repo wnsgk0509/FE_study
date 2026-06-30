@@ -38,6 +38,7 @@ function FeStudy() {
     //  로컬 스토리지 데이터를 관리할 State 추가 (최초 1회만 실행됨)
     const [localCommunityData, setLocalCommunityData] = useState(() => {
         const isData = window.localStorage.getItem('postsData');
+        console.log("재랜더링");
         if (isData) {
             return JSON.parse(isData); // 저장된 데이터가 있으면 불러옴
         } else {
@@ -91,7 +92,10 @@ function FeStudy() {
                 <Routes>
                     <Route path={"/"} element={<HomePage />}></Route>
                     <Route path="/catalog" element={<Catalog />}></Route>
-                    <Route path={"/community"} element={<Community />}></Route>
+                    <Route path={"/community"} element=
+                        {<Community
+                            localCommunityData={localCommunityData}
+                        />}></Route>
                     <Route path="/catalog/catalogDetail" element={<CatalogDetail />}></Route>
                     <Route path="/community/communityDetail" element=
                         {<PostDetail

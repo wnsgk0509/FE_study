@@ -3,20 +3,21 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { categories, communityPosts } from "../data/dummyCommunityData";
 import "./Community.css";
 
-function Community() {
+function Community({localCommunityData}) {
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
+   
 
     const [selectedTab, setSelectedTab] = useState(
         searchParams.get("tab") || "Q&A"
     );
-    const allTitles = communityPosts[selectedTab].map(post => post.title);
+    const allTitles = localCommunityData[selectedTab].map(post => post.title);
 
 
     useEffect(() => {
         const tab = searchParams.get("tab");
 
-        if (tab && communityPosts[tab]) {
+        if (tab && localCommunityData[tab]) {
             setSelectedTab(tab);
         } else {
             setSelectedTab("Q&A");
@@ -34,7 +35,7 @@ function Community() {
 
     const [searchTerm, setSearchTerm] = useState('')
                                                         // 데이터 미보유시 undefined 대비 안전장치
-    const currentTabPosts = communityPosts[selectedTab] || [/*빈배열*/];
+    const currentTabPosts = localCommunityData[selectedTab] || [/*빈배열*/];
     const filteredPosts = currentTabPosts.filter((post) =>
         post.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
