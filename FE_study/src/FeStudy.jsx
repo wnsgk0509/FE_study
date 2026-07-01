@@ -27,7 +27,7 @@ function FeStudy() {
 
     //  프로필 이름도 새로고침 시 로컬스토리지의 유저 정보에서 꺼내오기
     const [profile, setProfile] = useState(() => {
-        
+       
         const savedUser = localStorage.getItem('user');
         if (savedUser) {
             const userObj = JSON.parse(savedUser);
@@ -59,6 +59,7 @@ function FeStudy() {
 
             setIsLoggedIn(false);
             setProfile('');
+
         } else {
             setIsLoginModal(true);
         }

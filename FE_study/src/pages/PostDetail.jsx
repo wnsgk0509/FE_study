@@ -36,7 +36,6 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
 
     const username = profile;
 
-    const [liked, setLiked] = useState([post] || []);
     const [comments, setComments] = useState(post.comments || []);
     const [comment, setComment] = useState('');
 
@@ -52,6 +51,7 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
             alert("로그인 후 좋아요를 누를 수 있습니다.");
             return;
         }
+        
 
         const currentLikedUsers = post.likedUsers || [];
 
@@ -64,8 +64,7 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
             newLikedUsers = [...currentLikedUsers, profile];
         }
         
-        //토글버튼 on/off 디자인
-        setLiked(!isLikedByMe);
+
 
         //  전체 데이터 구조 업데이트 (comments가 아니라 likedUsers를 업데이트합니다)
         const updatedCommunityData = {
@@ -204,7 +203,7 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
 
                 <div className="like-area">
                     <button
-                        className={liked ? "liked" : ""}
+                        className={post.likedUsers && post.likedUsers.includes(profile)  ? "liked" : ""}
                         onClick={toggleLike}
                     >
 

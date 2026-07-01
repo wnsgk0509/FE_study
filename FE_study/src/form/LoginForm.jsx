@@ -28,6 +28,7 @@ function LoginForm({ dummyUserData, setProfile, setIsLoggedIn, setIsLoginModal})
                 <form onSubmit={(e) => {
                     e.preventDefault();
                     const foundUser = dummyUserData.find(dummyUserData => dummyUserData.userId === inputId);
+                    console.log(foundUser);
                     if (foundUser) {
 
                         if (foundUser.userPw === inputPw) {
