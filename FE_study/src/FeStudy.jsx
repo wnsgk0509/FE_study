@@ -17,6 +17,7 @@ import { communityPosts } from './data/dummyCommunityData';
 
 function FeStudy() {
 
+    // 로그인 폼
     const [isLoginModal, setIsLoginModal] = useState(false);
 
     // 로그인 상태를 로컬스토리지와 연동 (중복 제거 완료)
@@ -26,6 +27,7 @@ function FeStudy() {
 
     //  프로필 이름도 새로고침 시 로컬스토리지의 유저 정보에서 꺼내오기
     const [profile, setProfile] = useState(() => {
+        
         const savedUser = localStorage.getItem('user');
         if (savedUser) {
             const userObj = JSON.parse(savedUser);
@@ -51,7 +53,7 @@ function FeStudy() {
     // 로그인 / 로그아웃 핸들러 버튼 클릭시
     const handleButtonClick = () => {
         if (isLoggedIn) {
-            // 🚨 로그아웃 시 로컬스토리지 청소하기!
+            //  로그아웃 시 로컬스토리지 청소하기!
             localStorage.removeItem('isLogIn');
             localStorage.removeItem('user');
 

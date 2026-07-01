@@ -10,10 +10,12 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
     const postId = searchParams.get("id");
     const tab = decodeURIComponent(searchParams.get("tab") || "Q&A");
 
+
     const allPosts = Object.values(localCommunityData).flat();
 
     //post에는 상세페이지에 들어와있는 데이터를 가지고있음(객체).
     const post = allPosts.find((item) => item.id === postId);
+
 
     if (!post) {
         return (
@@ -34,12 +36,15 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
 
     const username = profile;
 
-    const [liked, setLiked] = useState(false);
+    const [liked, setLiked] = useState([post] || []);
     const [comments, setComments] = useState(post.comments || []);
     const [comment, setComment] = useState('');
 
 
 
+    // 배열에 본인이 있는지 검증하는 로직 
+    // 있으면 토글 on
+    // 없으면 토글 off
 
     //게시글 좋아요 기능
     const toggleLike = () => {
@@ -48,7 +53,31 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
             return;
         }
 
-        setLiked(!liked);
+        const currentLikedUsers = post.likedUsers || [];
+
+        const isLikedByMe = currentLikedUsers.includes(profile);
+
+        let newLikedUsers;
+        if (isLikedByMe) {
+            newLikedUsers = currentLikedUsers.filter((user) => user !== profile);
+        } else {
+            newLikedUsers = [...currentLikedUsers, profile];
+        }
+        
+        //토글버튼 on/off 디자인
+        setLiked(!isLikedByMe);
+
+        //  전체 데이터 구조 업데이트 (comments가 아니라 likedUsers를 업데이트합니다)
+        const updatedCommunityData = {
+            ...localCommunityData,
+            [tab]: localCommunityData[tab].map((item) =>
+                item.id === postId ? { ...item, likedUsers: newLikedUsers } : item
+            ),
+        };
+
+        //  상태 변경 및 로컬 스토리지 저장
+        setLocalCommunityData(updatedCommunityData);
+        window.localStorage.setItem("postsData", JSON.stringify(updatedCommunityData));
     };
 
     //댓글 기능
@@ -100,7 +129,7 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
             if (item.id === id) {
                 // 기존 더미 데이터에는 likedUsers 배열이 없을 수 있으므로 방어 코드를 작성합니다.
                 const currentLikedUsers = item.likedUsers || [];
-                
+
                 // 내 이름이 배열에 있는지 확인 (있으면 true, 없으면 false)
                 const isLikedByMe = currentLikedUsers.includes(profile);
 
@@ -134,8 +163,6 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
         setLocalCommunityData(updatedCommunityData);
         //  로컬 스토리지 저장
         window.localStorage.setItem("postsData", JSON.stringify(updatedCommunityData));
-
-
 
     };
 
@@ -180,7 +207,8 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
                         className={liked ? "liked" : ""}
                         onClick={toggleLike}
                     >
-                        👍 도움이 됐어요 {liked ? post.likes + 1 : post.likes}
+
+                        👍 도움이 됐어요 {post.likedUsers.length}
                     </button>
                 </div>
 
@@ -208,8 +236,7 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
                             <p>{item.content}</p>
 
                             <button
-                                className={`comment-like-btn ${
-                                    item.likedUsers && item.likedUsers.includes(profile) 
+                                className={`comment-like-btn ${item.likedUsers && item.likedUsers.includes(profile)
                                     ? "liked" : ""}`}
                                 onClick={() => toggleCommentLike(item.id)}
                             >

@@ -14,7 +14,7 @@ export const communityPosts = {
             reply: 5,
             badge: "qa-badge",
             views: 321,
-            likes: 18,
+            likedUsers: ["박지호", "최유진"],
             text: "React에서 상태 관리를 할 때, 컴포넌트 간의 상태 공유가 필요할 경우 Context API를 사용하거나, 더 복잡한 상태 관리가 필요할 경우 Redux나 MobX와 같은 라이브러리를 사용하는 것이 좋습니다. 또한, 상태를 최소화하고 필요한 곳에서만 상태를 관리하는 것이 성능 최적화에 도움이 됩니다.",
             comments: [
                 {
@@ -48,7 +48,7 @@ export const communityPosts = {
             reply: 12,
             badge: "qa-badge",
             views: 287,
-            likes: 11,
+            likedUsers: ["박지호", "최유진"],
             text: "useEffect의 의존성 배열은 컴포넌트가 렌더링될 때마다 특정 값이 변경되었는지 확인하고, 그 값이 변경되었을 때만 useEffect 내부의 콜백 함수를 실행하도록 합니다. 따라서 의존성 배열에 포함된 값이 많아질수록 관리가 어려워질 수 있습니다. 이를 해결하기 위해서는 필요한 값만 의존성 배열에 포함시키고, 불필요한 값은 제외하는 것이 좋습니다.",
             comments: [
                 {
@@ -78,7 +78,7 @@ export const communityPosts = {
             reply: 15,
             badge: "tip-badge",
             views: 441,
-            likes: 29,
+            likedUsers: ["박지호", "최유진"],
             text: "CSS 변수를 사용하여 다크모드를 구현하는 방법은 간단하고 유지보수가 쉬우며, 색상 값을 한 곳에서 관리할 수 있어 코드의 일관성을 유지하는 데 도움이 됩니다.",
             comments: [
                 {
@@ -105,7 +105,7 @@ export const communityPosts = {
             reply: 9,
             badge: "tip-badge",
             views: 278,
-            likes: 17,
+            likedUsers: ["박지호", "최유진"],
             text: "비동기 에러 핸들링은 try-catch, .catch() 메서드, 그리고 async/await 패턴을 활용하는 것이 일반적입니다. 각 패턴의 장단점을 이해하고 상황에 맞게 선택하는 것이 중요합니다.",
             comments: [
                 {
@@ -125,7 +125,7 @@ export const communityPosts = {
             reply: 18,
             badge: "tip-badge",
             views: 602,
-            likes: 34,
+            likedUsers: ["박지호", "최유진"],
             text: "Chrome DevTools의 단축키를 활용하면 디버깅과 개발 속도를 크게 향상시킬 수 있습니다. 예를 들어, Elements 패널을 열 때는 Ctrl+Shift+C, Console 패널은 Ctrl+Shift+J를 사용하면 빠르게 접근할 수 있습니다.",
             comments: [
                 {
@@ -148,7 +148,7 @@ export const communityPosts = {
             reply: 31,
             badge: "free-badge",
             views: 712,
-            likes: 46,
+            likedUsers: ["박지호", "최유진"],
             text: "프론트엔드 공부를 시작한 지 6개월이 되었는데, 그동안의 경험과 느낀 점을 공유하고자 합니다. 처음에는 HTML과 CSS부터 시작하여 JavaScript, React까지 공부하면서 많은 어려움이 있었지만, 꾸준히 학습하고 프로젝트를 진행하면서 실력이 향상되었습니다. 또한, 온라인 커뮤니티와 스터디 그룹에 참여하여 다른 개발자들과의 교류가 큰 도움이 되었습니다.",
             comments: [
                 {
@@ -175,7 +175,7 @@ export const communityPosts = {
             reply: 22,
             badge: "free-badge",
             views: 503,
-            likes: 33,
+            likedUsers: ["박지호", "최유진"],
             text: "HTML과 CSS만으로 포트폴리오 사이트를 만들어보았습니다. 처음에는 디자인과 레이아웃을 잡는 것이 어려웠지만, 다양한 레퍼런스를 참고하고 CSS Flexbox와 Grid를 활용하여 반응형 디자인을 구현할 수 있었습니다. 또한, 애니메이션 효과를 추가하여 사용자 경험을 향상시켰습니다.",
             comments: [
                 {
@@ -195,7 +195,7 @@ export const communityPosts = {
             reply: 14,
             badge: "free-badge",
             views: 388,
-            likes: 21,
+            likedUsers: ["박지호", "최유진"],
             text: "React를 주제로 한 코딩 스터디를 진행하려고 합니다. 관심 있는 분들은 함께 참여하여 서로의 지식을 공유하고 프로젝트를 진행하며 실력을 향상시킬 수 있습니다. 스터디는 온라인으로 진행되며, 매주 정기적으로 모임을 가질 예정입니다.",
             comments: [
                 {
