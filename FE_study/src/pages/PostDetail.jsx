@@ -13,7 +13,7 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
 
     const allPosts = Object.values(localCommunityData).flat();
 
-    //post에는 상세페이지에 들어와있는 데이터를 가지고있음(객체).
+    //post에는 상세페이지에 들어와있는 데이터를 가지고있음(객체)
     const post = allPosts.find((item) => item.id === postId);
 
 
@@ -40,11 +40,6 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
     const [comment, setComment] = useState('');
 
 
-
-    // 배열에 본인이 있는지 검증하는 로직 
-    // 있으면 토글 on
-    // 없으면 토글 off
-
     //게시글 좋아요 기능
     const toggleLike = () => {
         if (!isLoggedIn) {
@@ -66,7 +61,7 @@ function PostDetail({ isLoggedIn, profile, localCommunityData, setLocalCommunity
         
 
 
-        //  전체 데이터 구조 업데이트 (comments가 아니라 likedUsers를 업데이트합니다)
+        //  전체 데이터 구조 업데이트 (likedUsers를 업데이트)
         const updatedCommunityData = {
             ...localCommunityData,
             [tab]: localCommunityData[tab].map((item) =>

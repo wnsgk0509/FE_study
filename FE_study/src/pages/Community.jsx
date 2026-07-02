@@ -11,9 +11,11 @@ function Community({localCommunityData}) {
     const [selectedTab, setSelectedTab] = useState(
         searchParams.get("tab") || "Q&A"
     );
-    const allTitles = localCommunityData[selectedTab].map(post => post.title);
 
+    // 필요없는코드 제거
+    // const allTitles = localCommunityData[selectedTab].map(post => post.title);
 
+    //카테고리탭 랜더링
     useEffect(() => {
         const tab = searchParams.get("tab");
 

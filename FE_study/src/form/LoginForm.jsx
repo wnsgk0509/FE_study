@@ -31,6 +31,7 @@ function LoginForm({ dummyUserData, setProfile, setIsLoggedIn, setIsLoginModal})
                     console.log(foundUser);
                     if (foundUser) {
 
+                        //로그인 성공시 동작
                         if (foundUser.userPw === inputPw) {
                             alert(`${foundUser.userName}님 환영합니다!`);
                             localStorage.setItem('isLogIn', 'true'); // 로그인 여부 저장

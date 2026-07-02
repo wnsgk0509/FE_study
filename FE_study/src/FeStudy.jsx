@@ -20,7 +20,7 @@ function FeStudy() {
     // 로그인 폼
     const [isLoginModal, setIsLoginModal] = useState(false);
 
-    // 로그인 상태를 로컬스토리지와 연동 (중복 제거 완료)
+    // 로그인 상태를 로컬스토리지와 연동 
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
         return localStorage.getItem('isLogIn') === 'true';
     });
@@ -31,7 +31,7 @@ function FeStudy() {
         const savedUser = localStorage.getItem('user');
         if (savedUser) {
             const userObj = JSON.parse(savedUser);
-            return userObj.userName; // 저장되어 있던 유저의 이름 반환
+            return userObj.userName; // 로그인한 유저의 이름 반환
         }
         return '';
     })
@@ -42,9 +42,10 @@ function FeStudy() {
         const isData = window.localStorage.getItem('postsData');
         
         if (isData) {
-            return JSON.parse(isData); // 저장된 데이터가 있으면 불러옴
+            // 저장된 데이터가 있으면 불러옴
+            return JSON.parse(isData); 
         } else {
-            // 없으면 더미 데이터를 저장하고 반환
+            // 없으면 임의 데이터를 저장하고 반환
             window.localStorage.setItem('postsData', JSON.stringify(communityPosts));
             return communityPosts;
         }
@@ -53,7 +54,7 @@ function FeStudy() {
     // 로그인 / 로그아웃 핸들러 버튼 클릭시
     const handleButtonClick = () => {
         if (isLoggedIn) {
-            //  로그아웃 시 로컬스토리지 청소하기!
+            //  로그아웃 시 로컬스토리지 제거
             localStorage.removeItem('isLogIn');
             localStorage.removeItem('user');
 
@@ -90,7 +91,7 @@ function FeStudy() {
             {/* 로그인폼 */}
 
 
-            {/* 실제 화면이 바뀌는 영역 */}
+            {/* body 섹션 */}
             <div>
                 <Routes>
                     <Route path={"/"} element={<HomePage />}></Route>
@@ -113,7 +114,7 @@ function FeStudy() {
                     <Route path="/catalog/:id" element={<CatalogDetail />} />
                 </Routes>
             </div>
-            {/* 실제 화면이 바뀌는 영역 */}
+            {/* body 섹션 */}
 
             {/* Footer */}
             <Footer />

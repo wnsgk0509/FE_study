@@ -8,13 +8,16 @@ import jsLogo from "../assets/JS.png";
 import reactLogo from "../assets/REACT.png";
 
 function CatalogDetail() {
-    const { id } = useParams(); 
+    const { id } = useParams();
+
     // 존재하지 않는 페이지 식별
     const currentItem = dummyData.find(item => item.id === Number(id));
 
     if (!currentItem) return <div>페이지를 찾을 수 없습니다.</div>;
+
     //더미데이터 value 안에있는 것 , 넘겨 받기
     const { text1, text2, difficult, explain, time, videoUrl, links = [], content = [] } = currentItem.value;
+
     //text1과 일치하는것과 맞는 로고 지정
     let currentImg;
     if (text1 === "HTML") currentImg = htmlLogo;
@@ -24,11 +27,11 @@ function CatalogDetail() {
 
     return (
         <div>
-            <div className="banner animate__animated animate__fadeIn"> 
+            <div className="banner animate__animated animate__fadeIn">
                 <div className="img">
                     <img className="image" src={currentImg} alt={text1} /> {/*text1 과 일치하는 로고 출력*/}
                 </div>
-            {/* 상단 배너 학습 과목 설명 텍스트 박스 */}
+                {/* 상단 배너 학습 과목 설명 텍스트 박스 */}
                 <div className="explain">
                     <div className="text-box">
                         <span className="badge-text1">
@@ -40,7 +43,7 @@ function CatalogDetail() {
                     </div>
 
                     <h1 className="badge-text2">{text2}</h1>
-                    
+
 
                     <div className='badge-explainBox'>
                         <p className='badge-explain'>{explain}</p>
@@ -52,12 +55,13 @@ function CatalogDetail() {
                         </p>
                     </div>
                 </div>
-                
+                {/* 상단 배너 학습 과목 설명 텍스트 박스 */}
+
                 <div>
                     <iframe className="frame" src={videoUrl} allowFullScreen title="강의 영상"></iframe>
                 </div>
 
-                <div className="link"> 
+                <div className="link">
                     <div className="study">
                         <div className='moveLink'>
                             <h3 className="mainText">
@@ -78,18 +82,18 @@ function CatalogDetail() {
                         </div>
                     </div>
                     {/* 아코디언 컴포넌트 출력 */}
-                        <div className='accordion'>
-                            <Accordion list={content} />
-                        </div>
+                    <div className='accordion'>
+                        <Accordion list={content} />
+                    </div>
                 </div>
-                
-                
+
+
             </div>
         </div>
     );
 }
 
-// 💡 아코디언 분할 및 토글 관리 컴포넌트
+// 아코디언 분할 및 토글 관리 컴포넌트
 function Accordion({ list }) {
     const [openIndex, setOpenIndex] = useState(null);
     // 배너를 클릭했을때 닫혀있다면 열어주고 열려있다면 닫아준다.
@@ -102,17 +106,17 @@ function Accordion({ list }) {
     const lecture2 = list.slice(3, 6);
     const lecture3 = list.slice(6, 9);
 
-    // 개별 아코디언 바 아이템 렌더링 함수 (오타 수정완료)
+    // 개별 아코디언 바 아이템 렌더링 함수 
     const renderAccordionItem = (index, title, subTitles) => {
         const isOpen = openIndex === index;
-    
+
         return (
             <div className='accordion-box'>
-                <div 
-                // 클릭했을때 handleToggle 함수 실행
-                    onClick={() => handleToggle(index)} 
+                <div
+                    // 클릭했을때 handleToggle 함수 실행
+                    onClick={() => handleToggle(index)}
                     className='cqTextBox'
-                    style={{background: isOpen ? '#f1f3f5' : '#fcfcfc'}}
+                    style={{ background: isOpen ? '#f1f3f5' : '#fcfcfc' }}
                 >
                     <span className='cqTextBanner'>{title}</span>
                     <span style={{ color: '#888' }}>{isOpen ? "▲" : "▼"}</span>
